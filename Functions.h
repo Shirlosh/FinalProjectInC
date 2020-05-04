@@ -11,7 +11,7 @@
 #include "stdbool.h"
 #include "stdlib.h"
 
-#define ConvertFomRoWToLettervalidMove(row) (row+64)
+#define ConvertFomRoWToLettervalidMove(row) (row+65)
 #define ConvertChToDec(x) (x-'0')
 #define N 4
 #define M 4

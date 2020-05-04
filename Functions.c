@@ -122,10 +122,10 @@ void reComputeMovemntArray(movesArray *pArr) {
     newSize = 3;
 }
 
-///
-/// \param validMovesArray
-/// \param moves
-boardPosArray** BuildingToNewArray(movesArray **moves) {
+/// This functions build the new arr that we need to return in part one
+///the movement array with all the valid moves \param moves
+///return the new array as asked in part A \return
+boardPosArray **BuildingToNewArray(movesArray **moves) {
     unsigned int size;
     boardPosArray **validMovesArray = NULL;
     boardPosArray *pValidArray = NULL;
@@ -136,33 +136,39 @@ boardPosArray** BuildingToNewArray(movesArray **moves) {
 
     for (int i = 0; i < N; ++i) {
         pValidArray = (boardPosArray *) calloc(M, sizeof(boardPosArray));
+        pValidArray->positions=NULL;
         checkMemoryAllocation(pValidArray);
         for (int j = 0; j < M; ++j) {
             size = (moves[i][j]).size;
-            pValidArray[j].size=size;
+            pValidArray[j].size = size;
         }
-    }
+        CopyValidBoardPositions(pValidArray, moves[i]);
 
-    for (int k = 0; k < N; ++k) {
-        CopyValidBoardPositions(validMovesArray[k], moves[k]);
     }
     return validMovesArray;
 }
 
-/// NEED TO CHECK IF WORKS/
-/// הפונקציה למעשה בונה את המערך החדש ושמה שם את בהתאם לכל תזוזה חוקית את מיקומי םהחוקיםם
-/// \param newArr
-/// \param validMove
+
+/// this functions put in boardpositions the letters of the
+/// legal positions.
+///holds the row of the boardPosArray \param newArr
+/// validMove arr that holds all the vallid moves of each cell in the movesArray\param validMove
 void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove) {
-    unsigned int arrSize = newArr->size;
+    unsigned int arrSize;
     boardPos *bpDes = NULL;
-    newArr->positions = (boardPos *) calloc(arrSize, sizeof(boardPos));
-    checkMemoryAllocation(newArr->positions);
-    bpDes = newArr->positions;
-    for (int i = 0; i < arrSize; ++i) {
-        bpDes[i][0] = validMove[i].moves->cols;
-        bpDes[i][1] = (char) ConvertFomRoWToLettervalidMove(validMove[i].moves->rows);
+    arrSize = newArr[0].size;
+
+    for (int j = 0; j < M; ++j) {
+        arrSize = newArr[j].size;
+        newArr[j].positions = (boardPos *) calloc(arrSize, sizeof(boardPos));
+        checkMemoryAllocation(newArr[j].positions);
+        bpDes = newArr[j].positions;
+        for (int i = 0; i < arrSize; ++i) {
+            bpDes[i][0] = validMove[i].moves->cols;
+            bpDes[i][1] = (char) ConvertFomRoWToLettervalidMove(validMove[i].moves->rows);
+        }
     }
+
 }
 
 
