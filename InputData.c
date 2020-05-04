@@ -1,0 +1,62 @@
+//
+// Created by Idan Hauser on 16/04/2020.
+//
+
+#include "InputData.h"
+#include <stdio.h>
+#include <string.h>
+#include "stdbool.h"
+#include "stdlib.h"
+#include "Functions.h"
+
+
+movesArray **getMovesArray() {
+    movesArray *pInput = NULL;
+    movesArray **pMovesArr = NULL;
+
+    pMovesArr = (movesArray **) calloc(N, sizeof(movesArray *));
+    checkMemoryAllocation(pMovesArr);
+    for (int i = 0; i < N; ++i) {
+        pMovesArr[i] = (movesArray *) calloc(M, sizeof(movesArray));
+        checkMemoryAllocation(pMovesArr[i]);
+        for (int j = 0; j < M; ++j) {
+            pInput = &pMovesArr[i][j];
+            scanf("%u", &(pInput->size));
+            pInput->moves = getMovementArr(pInput->size);
+        }
+    }
+    return pMovesArr;
+}
+
+char **getCharBoard() {
+    char **pGameBoard = NULL;
+    pGameBoard = (char **) calloc(N, sizeof(char *));
+    checkMemoryAllocation(pGameBoard);
+    for (int i = 0; i < N; ++i) {
+        pGameBoard[i] = (char *) calloc(M, sizeof(char));
+        checkMemoryAllocation(pGameBoard[i]);
+        for (int j = 0; j < M; ++j) {
+            fflush(stdin);
+            pGameBoard[i][j] = getchar();
+        }
+    }
+    return pGameBoard;
+}
+
+Move *getMovementArr(int size) {
+    int row, col;
+    Move *array = (Move *) calloc(size, sizeof(Move));
+    checkMemoryAllocation(array);
+    for (int i = 0; i < size; ++i) {
+        fflush(stdin);
+        scanf("%d", &row);
+        array[i].rows = row;
+        fflush(stdin);
+        scanf("%d", &col);
+        array[i].cols = col;
+
+        //    scanf("%c", &array[i].rows);
+        //   scanf("%c", &array[i].cols);
+    }
+    return array;
+}
