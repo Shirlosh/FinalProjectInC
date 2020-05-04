@@ -10,6 +10,7 @@
 #include <string.h>
 #include "stdbool.h"
 #include "stdlib.h"
+
 #define ConvertFomRoWToLettervalidMove(row) (row+64)
 #define ConvertChToDec(x) (x-'0')
 #define N 4
@@ -47,7 +48,7 @@ bool isOutOfBorder(int row, int col);
 
 void reComputeMovemntArray(movesArray *pArr);
 
-void BuildingToNewArray(boardPosArray **validMovesArray, movesArray **moves);
+boardPosArray** BuildingToNewArray(movesArray **moves);
 
 void CopyValidBoardPositions(boardPosArray *array, movesArray *array1);
 

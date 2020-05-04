@@ -17,15 +17,14 @@
 /// the board with the chars\param board
 ///new arr with all the valid positions  \return
 boardPosArray **validMoves(movesArray **moves, char **board) {
-    boardPosArray **validMovesArray = (boardPosArray **) calloc(N * M, sizeof(boardPosArray));
-    checkMemoryAllocation(validMovesArray);
 
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < M; ++j) {
             CheckifMovesisValid(&moves[i][j], board, i, j);
         }
     }
-    BuildingToNewArray(validMovesArray, moves);
+
+    BuildingToNewArray(moves);
 
 
     return NULL;
@@ -126,16 +125,28 @@ void reComputeMovemntArray(movesArray *pArr) {
 ///
 /// \param validMovesArray
 /// \param moves
-void BuildingToNewArray(boardPosArray **validMovesArray, movesArray **moves) {
+boardPosArray** BuildingToNewArray(movesArray **moves) {
     unsigned int size;
+    boardPosArray **validMovesArray = NULL;
+    boardPosArray *pValidArray = NULL;
+
+    validMovesArray = (boardPosArray **) calloc(N, sizeof(boardPosArray *));
+    checkMemoryAllocation(validMovesArray);
+
 
     for (int i = 0; i < N; ++i) {
+        pValidArray = (boardPosArray *) calloc(M, sizeof(boardPosArray));
+        checkMemoryAllocation(pValidArray);
         for (int j = 0; j < M; ++j) {
             size = (moves[i][j]).size;
-            validMovesArray[i][j].size = size;
-            CopyValidBoardPositions(&validMovesArray[i][j], &moves[i][j]);
+            pValidArray[j].size=size;
         }
     }
+
+    for (int k = 0; k < N; ++k) {
+        CopyValidBoardPositions(validMovesArray[k], moves[k]);
+    }
+    return validMovesArray;
 }
 
 /// NEED TO CHECK IF WORKS/
