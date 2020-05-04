@@ -25,7 +25,7 @@ boardPosArray **validMoves(movesArray **moves, char **board) {
             CheckifMovesisValid(&moves[i][j], board, i, j);
         }
     }
-    BuildingToNewArray(&validMovesArray, moves);
+    BuildingToNewArray(validMovesArray, moves);
 
 
     return NULL;
@@ -126,14 +126,14 @@ void reComputeMovemntArray(movesArray *pArr) {
 ///
 /// \param validMovesArray
 /// \param moves
-void BuildingToNewArray(boardPosArray ***validMovesArray, movesArray **moves) {
+void BuildingToNewArray(boardPosArray **validMovesArray, movesArray **moves) {
     unsigned int size;
 
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < M; ++j) {
             size = (moves[i][j]).size;
-            (validMovesArray[i][j])->size = size;
-            CopyValidBoardPositions(validMovesArray[N][M], &moves[N][M]);
+            validMovesArray[i][j].size = size;
+            CopyValidBoardPositions(&validMovesArray[i][j], &moves[i][j]);
         }
     }
 }
