@@ -126,23 +126,21 @@ void reComputeMovemntArray(movesArray *pArr) {
 ///the movement array with all the valid moves \param moves
 ///return the new array as asked in part A \return
 boardPosArray **BuildingToNewArray(movesArray **moves) {
-    unsigned int size;
     boardPosArray **validMovesArray = NULL;
-    boardPosArray *pValidArray = NULL;
+    // boardPosArray *pValidArray = NULL;
 
     validMovesArray = (boardPosArray **) calloc(N, sizeof(boardPosArray *));
     checkMemoryAllocation(validMovesArray);
 
 
     for (int i = 0; i < N; ++i) {
-        pValidArray = (boardPosArray *) calloc(M, sizeof(boardPosArray));
-        pValidArray->positions=NULL;
-        checkMemoryAllocation(pValidArray);
+        validMovesArray[i] = (boardPosArray *) calloc(M, sizeof(boardPosArray));
+        validMovesArray[i]->positions = NULL;
+        checkMemoryAllocation(validMovesArray[i]);
         for (int j = 0; j < M; ++j) {
-            size = (moves[i][j]).size;
-            pValidArray[j].size = size;
+            validMovesArray[i][j].size = (moves[i][j]).size;
         }
-        CopyValidBoardPositions(pValidArray, moves[i]);
+        CopyValidBoardPositions(validMovesArray[i], moves[i]);
 
     }
     return validMovesArray;

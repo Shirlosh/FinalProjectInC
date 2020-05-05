@@ -6,18 +6,22 @@
 #define FINALPROJCT_LISTDISPLAYFUNCTIONS_H
 
 #include "Functions.h"
-#include <curses.h>
-#define convertFromLetterToRow(letter) (letter-65)
+
+#define convertFromLetterToRow(letter) (letter-'65')
+#define StartFlag '#'
 
 typedef struct _moveCell {
     Move move;
     struct _moveCell *next, *prev;
 } moveCell;
+
 typedef struct _movesList {
     moveCell *head;
     moveCell *tail;
 } movesList;
 
+void buildingGamePlay(char **gameBoard, movesList *moves_list, boardPos *start,const char **board);
+
 int display(movesList *moves_list, boardPos *start, char **board);
-void printOnScreen(boardPos *start);
+
 #endif //FINALPROJCT_LISTDISPLAYFUNCTIONS_H
