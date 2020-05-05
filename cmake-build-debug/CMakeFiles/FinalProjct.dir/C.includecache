@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/idanhauser/CLionProjects/FinalProject/Functions.c
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c
 stdio.h
 -
 stdio.h
@@ -16,13 +16,13 @@ string.h
 assert.h
 -
 stdbool.h
-/Users/idanhauser/CLionProjects/FinalProject/stdbool.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdbool.h
 stdlib.h
-/Users/idanhauser/CLionProjects/FinalProject/stdlib.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdlib.h
 Functions.h
-/Users/idanhauser/CLionProjects/FinalProject/Functions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 
-/Users/idanhauser/CLionProjects/FinalProject/Functions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 stdio.h
 -
 stdio.h
@@ -30,25 +30,25 @@ stdio.h
 string.h
 -
 stdbool.h
-/Users/idanhauser/CLionProjects/FinalProject/stdbool.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdbool.h
 stdlib.h
-/Users/idanhauser/CLionProjects/FinalProject/stdlib.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdlib.h
 
-/Users/idanhauser/CLionProjects/FinalProject/InputData.c
+/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.c
 InputData.h
-/Users/idanhauser/CLionProjects/FinalProject/InputData.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.h
 stdio.h
 -
 string.h
 -
 stdbool.h
-/Users/idanhauser/CLionProjects/FinalProject/stdbool.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdbool.h
 stdlib.h
-/Users/idanhauser/CLionProjects/FinalProject/stdlib.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdlib.h
 Functions.h
-/Users/idanhauser/CLionProjects/FinalProject/Functions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 
-/Users/idanhauser/CLionProjects/FinalProject/InputData.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.h
 stdio.h
 -
 stdio.h
@@ -56,13 +56,13 @@ stdio.h
 string.h
 -
 stdbool.h
-/Users/idanhauser/CLionProjects/FinalProject/stdbool.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdbool.h
 stdlib.h
-/Users/idanhauser/CLionProjects/FinalProject/stdlib.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdlib.h
 Functions.h
-/Users/idanhauser/CLionProjects/FinalProject/Functions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 
-/Users/idanhauser/CLionProjects/FinalProject/main.c
+/Users/idanhauser/CLionProjects/FinalProjectInC/main.c
 stdio.h
 -
 stdio.h
@@ -70,11 +70,11 @@ stdio.h
 string.h
 -
 stdbool.h
-/Users/idanhauser/CLionProjects/FinalProject/stdbool.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdbool.h
 stdlib.h
-/Users/idanhauser/CLionProjects/FinalProject/stdlib.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/stdlib.h
 Functions.h
-/Users/idanhauser/CLionProjects/FinalProject/Functions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 InputData.h
-/Users/idanhauser/CLionProjects/FinalProject/InputData.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.h
 
