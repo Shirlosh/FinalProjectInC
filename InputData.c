@@ -28,6 +28,7 @@ movesArray **getMovesArray() {
     }
     return pMovesArr;
 }
+
 /// getting from the user the char array
 ///retuns the game arrat \return
 char **getCharBoard() {
@@ -44,6 +45,7 @@ char **getCharBoard() {
     }
     return pGameBoard;
 }
+
 /// getting from the user the momvesment array amd  builds it
 /// size of each arr\param size
 /// retunes the new arr\return

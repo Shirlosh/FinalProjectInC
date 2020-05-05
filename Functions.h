@@ -48,7 +48,7 @@ bool isOutOfBorder(int row, int col);
 
 void reComputeMovemntArray(movesArray *pArr);
 
-boardPosArray** BuildingToNewArray(movesArray **moves);
+boardPosArray **BuildingToNewArray(movesArray **moves);
 
 void CopyValidBoardPositions(boardPosArray *array, movesArray *array1);
 

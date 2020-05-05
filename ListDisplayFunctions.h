@@ -30,4 +30,6 @@ bool checkBoardCell(const char **board, char **gameBoard, Move pMove);
 
 int buildingGamePlay(char **gameBoard, movesList *moves_list, boardPos *start, const char **board);
 
+void printGameBoard(char **pGameBoard);
+
 #endif //FINALPROJCT_LISTDISPLAYFUNCTIONS_H
