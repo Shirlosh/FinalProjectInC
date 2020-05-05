@@ -119,7 +119,7 @@ void reComputeMovemntArray(movesArray *pArr) {
 
     pArr->moves = pMoveArr;
     pArr->size = newSize;
-    newSize = 3;
+  //  newSize = 3;
 }
 
 /// This functions build the new arr that we need to return in part one

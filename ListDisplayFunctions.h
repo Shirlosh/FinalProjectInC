@@ -20,8 +20,14 @@ typedef struct _movesList {
     moveCell *tail;
 } movesList;
 
-void buildingGamePlay(char **gameBoard, movesList *moves_list, boardPos *start,const char **board);
+int buildingGamePlay(char **gameBoard, movesList *moves_list, boardPos *start, const char **board);
 
 int display(movesList *moves_list, boardPos *start, char **board);
+
+void deleteNodeFromList(movesList *moves_list, moveCell *toDelete);
+
+bool checkBoardCell(const char **board, char **gameBoard, Move pMove);
+
+int buildingGamePlay(char **gameBoard, movesList *moves_list, boardPos *start, const char **board);
 
 #endif //FINALPROJCT_LISTDISPLAYFUNCTIONS_H
