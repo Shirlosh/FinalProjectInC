@@ -1,6 +1,6 @@
 //
 // Created by Idan Hauser on 11/04/2020.
-//בסדק
+//
 
 #ifndef FINALPROJECT_FUNCTIONS_H
 #define FINALPROJECT_FUNCTIONS_H

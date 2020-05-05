@@ -7,6 +7,7 @@ CMakeFiles/FinalProjct.dir/Functions.c.o: ../Functions.h
 CMakeFiles/FinalProjct.dir/InputData.c.o: ../Functions.h
 CMakeFiles/FinalProjct.dir/InputData.c.o: ../InputData.c
 CMakeFiles/FinalProjct.dir/InputData.c.o: ../InputData.h
+CMakeFiles/FinalProjct.dir/InputData.c.o: ../ListDisplayFunctions.h
 
 CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o: ../Functions.h
 CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o: ../ListDisplayFunctions.c
@@ -14,5 +15,6 @@ CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o: ../ListDisplayFunctions.h
 
 CMakeFiles/FinalProjct.dir/main.c.o: ../Functions.h
 CMakeFiles/FinalProjct.dir/main.c.o: ../InputData.h
+CMakeFiles/FinalProjct.dir/main.c.o: ../ListDisplayFunctions.h
 CMakeFiles/FinalProjct.dir/main.c.o: ../main.c
 

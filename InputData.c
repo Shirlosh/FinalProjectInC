@@ -66,3 +66,23 @@ Move *getMovementArr(int size) {
     }
     return array;
 }
+
+movesList *getMoveList() {
+    movesList *move_list = NULL;
+    move_list = (movesList *) calloc(1, sizeof(movesList));
+    makeEmptyList(move_list);
+    Move mov;
+    int howMany;
+    printf("How many moves?");
+    scanf("%d", &howMany);
+    for (int i = 1; i <= howMany; ++i) {
+        fflush(stdin);
+        scanf("%c", &mov.rows);
+        fflush(stdin);
+        scanf("%c", &mov.cols);
+        insertDataToEndList(move_list, mov);
+    }
+
+
+    return move_list;
+}

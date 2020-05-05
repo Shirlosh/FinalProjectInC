@@ -5,9 +5,11 @@
 #include "ListDisplayFunctions.h"
 
 
-int display(movesList *moves_list, boardPos *start, char **board) {
+int display(movesList *moves_list, boardPos start, char **board) {
     char **pGameBoard = NULL;
     int deletedNodes = 0;
+    start[0]='A';
+    start[1]='1';
     pGameBoard = (char **) calloc(N, sizeof(char *));
     checkMemoryAllocation(pGameBoard);
     for (int i = 0; i < N; ++i) {
@@ -30,7 +32,7 @@ void printGameBoard(char **pGameBoard) {
 }
 
 
-int buildingGamePlay(char **gameBoard, movesList *moves_list, boardPos *start, const char **board) {
+int buildingGamePlay(char **gameBoard, movesList *moves_list, boardPos start, const char **board) {
     moveCell *pMove = NULL;
     Move mov;
     int moveCount = 0;
@@ -75,6 +77,41 @@ bool checkBoardCell(const char **board, char **gameBoard, Move pMove) {
         isValid = true;
     }
     return isValid;
+}
+
+void insertDataToEndList(movesList *pList, Move mov) {
+    moveCell *newNode = NULL;
+    newNode = CreateNode(pList, mov);
+    insertNodeToEndList(pList, newNode);
+}
+
+moveCell *CreateNode(movesList *pList, Move mov) {
+    moveCell *item;
+
+    item = (moveCell *) malloc(sizeof(moveCell));
+    checkMemoryAllocation(item);
+
+    item->move = mov;
+    item->next = pList->tail;
+    return item;
+}
+
+void insertNodeToEndList(movesList *pList, moveCell *pNode) {
+    if (isEmptyList(pList)) {
+        pList->tail = pList->head = pNode;
+    } else {
+        pList->tail->next = pNode;
+        pList->tail = pNode;
+    }
+    pNode->next = NULL;
+}
+
+bool isEmptyList(movesList *pList) {
+    return pList->head == NULL ? true : false;
+}
+
+void makeEmptyList(movesList *pList) {
+    pList->head = pList->tail = NULL;
 }
 
 
