@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/idanhauser/CLionProjects/FinalProject
+CMAKE_SOURCE_DIR = /Users/idanhauser/CLionProjects/FinalProjectInC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/FinalProjct.dir/depend.make
@@ -59,48 +59,62 @@ include CMakeFiles/FinalProjct.dir/flags.make
 
 CMakeFiles/FinalProjct.dir/main.c.o: CMakeFiles/FinalProjct.dir/flags.make
 CMakeFiles/FinalProjct.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/FinalProjct.dir/main.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/FinalProjct.dir/main.c.o   -c /Users/idanhauser/CLionProjects/FinalProject/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/FinalProjct.dir/main.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/FinalProjct.dir/main.c.o   -c /Users/idanhauser/CLionProjects/FinalProjectInC/main.c
 
 CMakeFiles/FinalProjct.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/FinalProjct.dir/main.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/idanhauser/CLionProjects/FinalProject/main.c > CMakeFiles/FinalProjct.dir/main.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/idanhauser/CLionProjects/FinalProjectInC/main.c > CMakeFiles/FinalProjct.dir/main.c.i
 
 CMakeFiles/FinalProjct.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/FinalProjct.dir/main.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/idanhauser/CLionProjects/FinalProject/main.c -o CMakeFiles/FinalProjct.dir/main.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/idanhauser/CLionProjects/FinalProjectInC/main.c -o CMakeFiles/FinalProjct.dir/main.c.s
 
 CMakeFiles/FinalProjct.dir/Functions.c.o: CMakeFiles/FinalProjct.dir/flags.make
 CMakeFiles/FinalProjct.dir/Functions.c.o: ../Functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/FinalProjct.dir/Functions.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/FinalProjct.dir/Functions.c.o   -c /Users/idanhauser/CLionProjects/FinalProject/Functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/FinalProjct.dir/Functions.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/FinalProjct.dir/Functions.c.o   -c /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c
 
 CMakeFiles/FinalProjct.dir/Functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/FinalProjct.dir/Functions.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/idanhauser/CLionProjects/FinalProject/Functions.c > CMakeFiles/FinalProjct.dir/Functions.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c > CMakeFiles/FinalProjct.dir/Functions.c.i
 
 CMakeFiles/FinalProjct.dir/Functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/FinalProjct.dir/Functions.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/idanhauser/CLionProjects/FinalProject/Functions.c -o CMakeFiles/FinalProjct.dir/Functions.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c -o CMakeFiles/FinalProjct.dir/Functions.c.s
 
 CMakeFiles/FinalProjct.dir/InputData.c.o: CMakeFiles/FinalProjct.dir/flags.make
 CMakeFiles/FinalProjct.dir/InputData.c.o: ../InputData.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/FinalProjct.dir/InputData.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/FinalProjct.dir/InputData.c.o   -c /Users/idanhauser/CLionProjects/FinalProject/InputData.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/FinalProjct.dir/InputData.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/FinalProjct.dir/InputData.c.o   -c /Users/idanhauser/CLionProjects/FinalProjectInC/InputData.c
 
 CMakeFiles/FinalProjct.dir/InputData.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/FinalProjct.dir/InputData.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/idanhauser/CLionProjects/FinalProject/InputData.c > CMakeFiles/FinalProjct.dir/InputData.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/idanhauser/CLionProjects/FinalProjectInC/InputData.c > CMakeFiles/FinalProjct.dir/InputData.c.i
 
 CMakeFiles/FinalProjct.dir/InputData.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/FinalProjct.dir/InputData.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/idanhauser/CLionProjects/FinalProject/InputData.c -o CMakeFiles/FinalProjct.dir/InputData.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/idanhauser/CLionProjects/FinalProjectInC/InputData.c -o CMakeFiles/FinalProjct.dir/InputData.c.s
+
+CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o: CMakeFiles/FinalProjct.dir/flags.make
+CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o: ../ListDisplayFunctions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o   -c /Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.c
+
+CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.c > CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.i
+
+CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.c -o CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.s
 
 # Object files for target FinalProjct
 FinalProjct_OBJECTS = \
 "CMakeFiles/FinalProjct.dir/main.c.o" \
 "CMakeFiles/FinalProjct.dir/Functions.c.o" \
-"CMakeFiles/FinalProjct.dir/InputData.c.o"
+"CMakeFiles/FinalProjct.dir/InputData.c.o" \
+"CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o"
 
 # External object files for target FinalProjct
 FinalProjct_EXTERNAL_OBJECTS =
@@ -108,9 +122,10 @@ FinalProjct_EXTERNAL_OBJECTS =
 FinalProjct: CMakeFiles/FinalProjct.dir/main.c.o
 FinalProjct: CMakeFiles/FinalProjct.dir/Functions.c.o
 FinalProjct: CMakeFiles/FinalProjct.dir/InputData.c.o
+FinalProjct: CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o
 FinalProjct: CMakeFiles/FinalProjct.dir/build.make
 FinalProjct: CMakeFiles/FinalProjct.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable FinalProjct"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable FinalProjct"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FinalProjct.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +138,6 @@ CMakeFiles/FinalProjct.dir/clean:
 .PHONY : CMakeFiles/FinalProjct.dir/clean
 
 CMakeFiles/FinalProjct.dir/depend:
-	cd /Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/idanhauser/CLionProjects/FinalProject /Users/idanhauser/CLionProjects/FinalProject /Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug /Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug /Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles/FinalProjct.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/idanhauser/CLionProjects/FinalProjectInC /Users/idanhauser/CLionProjects/FinalProjectInC /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/FinalProjct.dir/depend
 

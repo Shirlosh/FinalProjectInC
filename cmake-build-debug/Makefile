@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/idanhauser/CLionProjects/FinalProject
+CMAKE_SOURCE_DIR = /Users/idanhauser/CLionProjects/FinalProjectInC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles /Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -177,6 +177,33 @@ InputData.c.s:
 	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/InputData.c.s
 .PHONY : InputData.c.s
 
+ListDisplayFunctions.o: ListDisplayFunctions.c.o
+
+.PHONY : ListDisplayFunctions.o
+
+# target to build an object file
+ListDisplayFunctions.c.o:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o
+.PHONY : ListDisplayFunctions.c.o
+
+ListDisplayFunctions.i: ListDisplayFunctions.c.i
+
+.PHONY : ListDisplayFunctions.i
+
+# target to preprocess a source file
+ListDisplayFunctions.c.i:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.i
+.PHONY : ListDisplayFunctions.c.i
+
+ListDisplayFunctions.s: ListDisplayFunctions.c.s
+
+.PHONY : ListDisplayFunctions.s
+
+# target to generate assembly for a file
+ListDisplayFunctions.c.s:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.s
+.PHONY : ListDisplayFunctions.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -219,6 +246,9 @@ help:
 	@echo "... InputData.o"
 	@echo "... InputData.i"
 	@echo "... InputData.s"
+	@echo "... ListDisplayFunctions.o"
+	@echo "... ListDisplayFunctions.i"
+	@echo "... ListDisplayFunctions.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -4,9 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/idanhauser/CLionProjects/FinalProject/Functions.c" "/Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles/FinalProjct.dir/Functions.c.o"
-  "/Users/idanhauser/CLionProjects/FinalProject/InputData.c" "/Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles/FinalProjct.dir/InputData.c.o"
-  "/Users/idanhauser/CLionProjects/FinalProject/main.c" "/Users/idanhauser/CLionProjects/FinalProject/cmake-build-debug/CMakeFiles/FinalProjct.dir/main.c.o"
+  "/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/Functions.c.o"
+  "/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/InputData.c.o"
+  "/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o"
+  "/Users/idanhauser/CLionProjects/FinalProjectInC/main.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
