@@ -5,6 +5,8 @@
 #include "ListDisplayFunctions.h"
 
 
+void printGameBoard(char **pGameBoard);
+
 int display(movesList *moves_list, boardPos *start, char **board) {
     char **pGameBoard = NULL;
     int deletedNodes = 0;
@@ -14,9 +16,18 @@ int display(movesList *moves_list, boardPos *start, char **board) {
         pGameBoard[i] = (char *) calloc(N, sizeof(char));
         checkMemoryAllocation(pGameBoard[i]);
     }
-    buildingGamePlay(pGameBoard, moves_list, start, (const char **) board);
+    deletedNodes = buildingGamePlay(pGameBoard, moves_list, start, (const char **) board);
+    printGameBoard(pGameBoard);
+    return deletedNodes;
+}
 
-    return 0;
+void printGameBoard(char **pGameBoard) {
+    for (int i = 0; i < N; ++i) {
+        printf("\n");
+        for (int j = 0; j < M; ++j) {
+            printf("%c \t", pGameBoard[i][j]);
+        }
+    }
 }
 
 
