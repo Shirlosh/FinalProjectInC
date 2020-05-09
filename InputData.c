@@ -56,10 +56,10 @@ Move *getMovementArr(int size) {
     for (int i = 0; i < size; ++i) {
         fflush(stdin);
         scanf("%d", &row);
-        array[i].rows = row;
+        array[i].rows = (char) row;
         fflush(stdin);
         scanf("%d", &col);
-        array[i].cols = col;
+        array[i].cols = (char) col;
 
         //    scanf("%c", &array[i].rows);
         //   scanf("%c", &array[i].cols);

@@ -154,7 +154,7 @@ boardPosArray **BuildingToNewArray(movesArray **moves) {
 void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove) {
     unsigned int arrSize;
     boardPos *bpDes = NULL;
-    arrSize = newArr[0].size;
+ //   arrSize = newArr[0].size;//Commeneted TODO : need to check if its important?
 
     for (int j = 0; j < M; ++j) {
         arrSize = newArr[j].size;

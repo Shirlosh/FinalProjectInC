@@ -20,7 +20,7 @@ typedef struct _movesList {
     moveCell *tail;
 } movesList;
 
-int buildingGamePlay(char **gameBoard, movesList *moves_list, boardPos start, const char **board);
+int buildingGamePlay(char **gameBoard, movesList *moves_list, const boardPos start, const char **board);
 
 int display(movesList *moves_list, boardPos start, char **board);
 

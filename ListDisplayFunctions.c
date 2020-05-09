@@ -8,8 +8,8 @@
 int display(movesList *moves_list, boardPos start, char **board) {
     char **pGameBoard = NULL;
     int deletedNodes = 0;
-    start[0]='A';
-    start[1]='1';
+    start[0] = 'A';
+    start[1] = '1';
     pGameBoard = (char **) calloc(N, sizeof(char *));
     checkMemoryAllocation(pGameBoard);
     for (int i = 0; i < N; ++i) {
@@ -32,14 +32,20 @@ void printGameBoard(char **pGameBoard) {
 }
 
 
-int buildingGamePlay(char **gameBoard, movesList *moves_list, boardPos start, const char **board) {
+int buildingGamePlay(char **gameBoard, movesList *moves_list, const boardPos start, const char **board) {
     moveCell *pMove = NULL;
     Move mov;
+    Move pMovRef = {'0', '0'};
     int moveCount = 0;
     int deletedNodes = 0;
     gameBoard[(int) convertFromLetterToRow(start[0])][(int) start[1]] = StartFlag;
+    pMovRef.rows = (char) convertFromLetterToRow(start[0]);
+    pMovRef.cols = (char) start[1];
     for (pMove = moves_list->head; pMove != NULL; pMove = pMove->next) {
         mov = pMove->move;
+        mov.cols=(char)((int)mov.cols+pMovRef.cols);
+        mov.rows=(char)((int)mov.rows+pMovRef.rows);
+
         if (checkBoardCell(board, gameBoard, mov)) {
             gameBoard[(int) mov.rows][(int) mov.cols] = (char) ++moveCount;
         } else {
@@ -72,9 +78,11 @@ void deleteNodeFromList(movesList *moves_list, moveCell *toDelete) {
 
 bool checkBoardCell(const char **board, char **gameBoard, Move pMove) {
     bool isValid = false;
-    if ((board[(int) pMove.rows][(int) pMove.cols] != '*') &&
-        (gameBoard[(int) pMove.rows][(int) pMove.cols] != '0')) {
-        isValid = true;
+    if (!isOutOfBorder((int) pMove.rows, (int) pMove.cols)) {
+        if ((board[(int) pMove.rows][(int) pMove.cols] != '*') &&
+            (gameBoard[(int) pMove.rows][(int) pMove.cols] == '0')) {
+            isValid = true;
+        }
     }
     return isValid;
 }
