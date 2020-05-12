@@ -15,12 +15,12 @@ movesArray **getMovesArray() {
     movesArray *pInput = NULL;
     movesArray **pMovesArr = NULL;
 
-    pMovesArr = (movesArray **) calloc(N, sizeof(movesArray *));
+    pMovesArr = (movesArray **) calloc(N+1, sizeof(movesArray *));
     checkMemoryAllocation(pMovesArr);
-    for (int i = 0; i < N; ++i) {
-        pMovesArr[i] = (movesArray *) calloc(M, sizeof(movesArray));
+    for (int i = 1; i <=N; ++i) {//rows
+        pMovesArr[i] = (movesArray *) calloc(M+1, sizeof(movesArray));
         checkMemoryAllocation(pMovesArr[i]);
-        for (int j = 0; j < M; ++j) {
+        for (int j = 1; j <=M; ++j) {//todo:chanded to start from 1 and not from 0//cols
             pInput = &pMovesArr[i][j];
             scanf("%u", &(pInput->size));
             pInput->moves = getMovementArr(pInput->size);
@@ -33,12 +33,12 @@ movesArray **getMovesArray() {
 ///retuns the game arrat \return
 char **getCharBoard() {
     char **pGameBoard = NULL;
-    pGameBoard = (char **) calloc(N, sizeof(char *));
+    pGameBoard = (char **) calloc(N+1, sizeof(char *));
     checkMemoryAllocation(pGameBoard);
-    for (int i = 0; i < N; ++i) {
-        pGameBoard[i] = (char *) calloc(M, sizeof(char));
+    for (int i = 1; i <=N; ++i) {
+        pGameBoard[i] = (char *) calloc(M+1, sizeof(char));
         checkMemoryAllocation(pGameBoard[i]);
-        for (int j = 0; j < M; ++j) {
+        for (int j = 1; j <=M; ++j) {
             fflush(stdin);
             pGameBoard[i][j] = getchar();
         }
@@ -61,9 +61,10 @@ Move *getMovementArr(int size) {
         scanf("%d", &col);
         array[i].cols = (char) col;
 
-        //    scanf("%c", &array[i].rows);
-        //   scanf("%c", &array[i].cols);
     }
+
+
+
     return array;
 }
 
@@ -77,9 +78,9 @@ movesList *getMoveList() {
     scanf("%d", &howMany);
     for (int i = 1; i <= howMany; ++i) {
         fflush(stdin);
-        scanf("%c", &mov.rows);
+        scanf("%d", &mov.rows);
         fflush(stdin);
-        scanf("%c", &mov.cols);
+        scanf("%d", &mov.cols);
         insertDataToEndList(move_list, mov);
     }
 

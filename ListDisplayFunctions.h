@@ -7,7 +7,7 @@
 
 #include "Functions.h"
 
-#define convertFromLetterToRow(letter) (letter-'65')
+#define convertFromLetterToRow(letter)(letter-64)
 #define StartFlag '#'
 
 typedef struct _moveCell {

@@ -22,4 +22,6 @@ char **getCharBoard();
 
 movesList *getMoveList();
 
+
+
 #endif //FINALPROJECT_INPUTDATA_H

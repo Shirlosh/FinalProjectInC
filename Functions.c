@@ -18,16 +18,12 @@
 ///new arr with all the valid positions  \return
 boardPosArray **validMoves(movesArray **moves, char **board) {
 
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < M; ++j) {
+    for (int i = 1; i <= N; ++i) {
+        for (int j = 1; j <= M; ++j) {
             CheckifMovesisValid(&moves[i][j], board, i, j);
         }
     }
-
-    BuildingToNewArray(moves);
-
-
-    return NULL;
+    return BuildingToNewArray(moves);
 }
 
 /// checks if the position the array of each cell in the pArray is legal if its not
@@ -115,7 +111,7 @@ void reComputeMovemntArray(movesArray *pArr) {
     unsigned int newSize = pArr->size - 1;
     pMoveArr = (Move *) realloc(pArr->moves, sizeof(Move) * newSize);
     checkMemoryAllocation(pMoveArr);
-    free(pArr->moves);
+    //free(pArr->moves);
 
     pArr->moves = pMoveArr;
     pArr->size = newSize;
@@ -129,18 +125,18 @@ boardPosArray **BuildingToNewArray(movesArray **moves) {
     boardPosArray **validMovesArray = NULL;
     // boardPosArray *pValidArray = NULL;
 
-    validMovesArray = (boardPosArray **) calloc(N, sizeof(boardPosArray *));
+    validMovesArray = (boardPosArray **) calloc(N+1, sizeof(boardPosArray *));
     checkMemoryAllocation(validMovesArray);
 
 
-    for (int i = 0; i < N; ++i) {
-        validMovesArray[i] = (boardPosArray *) calloc(M, sizeof(boardPosArray));
+    for (int i = 1; i <= N; ++i) {
+        validMovesArray[i] = (boardPosArray *) calloc(M+1, sizeof(boardPosArray));
         validMovesArray[i]->positions = NULL;
         checkMemoryAllocation(validMovesArray[i]);
-        for (int j = 0; j < M; ++j) {
+        for (int j = 1; j <= M; ++j) {
             validMovesArray[i][j].size = (moves[i][j]).size;
         }
-        CopyValidBoardPositions(validMovesArray[i], moves[i]);
+        CopyValidBoardPositions(validMovesArray[i], moves[i], i);
 
     }
     return validMovesArray;
@@ -149,21 +145,27 @@ boardPosArray **BuildingToNewArray(movesArray **moves) {
 
 /// this functions put in boardpositions the letters of the
 /// legal positions.
+///this funcion build a boardposition array to put in every cell, this new arr holds letters and numbpers as positions
 ///holds the row of the boardPosArray \param newArr
 /// validMove arr that holds all the vallid moves of each cell in the movesArray\param validMove
-void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove) {
+
+
+void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove, int refRow) {
     unsigned int arrSize;
     boardPos *bpDes = NULL;
- //   arrSize = newArr[0].size;//Commeneted TODO : need to check if its important?
 
-    for (int j = 0; j < M; ++j) {
+
+    for (int j = 1; j <= M; ++j) {
         arrSize = newArr[j].size;
-        newArr[j].positions = (boardPos *) calloc(arrSize, sizeof(boardPos));
-        checkMemoryAllocation(newArr[j].positions);
-        bpDes = newArr[j].positions;
-        for (int i = 0; i < arrSize; ++i) {
-            bpDes[i][0] = validMove[i].moves->cols;
-            bpDes[i][1] = (char) ConvertFomRoWToLettervalidMove(validMove[i].moves->rows);
+        if (arrSize > 0) {
+            newArr[j].positions = (boardPos *) calloc(arrSize, sizeof(boardPos));
+            checkMemoryAllocation(newArr[j].positions);
+            bpDes = newArr[j].positions;
+            for (int i = 1; i <= arrSize; ++i) {
+                bpDes[i-1][0] = j + validMove[i].moves->cols;
+                bpDes[i-1][1] = (char) ConvertFomRoWToLettervalidMove((validMove[i].moves->rows + refRow));
+
+            }
         }
     }
 
