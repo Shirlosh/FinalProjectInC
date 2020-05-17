@@ -12,8 +12,8 @@ int display(movesList *moves_list, boardPos start, char **board) {
     start[1] = '2';
     pGameBoard = (char **) calloc(N, sizeof(char *));
     checkMemoryAllocation(pGameBoard);
-    for (int i = 0; i < N; ++i) {
-        pGameBoard[i] = (char *) calloc(N, sizeof(char));
+    for (int i = 1; i <= N; ++i) {
+        pGameBoard[i] = (char *) calloc(M, sizeof(char));
         checkMemoryAllocation(pGameBoard[i]);
     }
     deletedNodes = buildingGamePlay(pGameBoard, moves_list, start, (const char **) board);
@@ -24,6 +24,8 @@ int display(movesList *moves_list, boardPos start, char **board) {
 /// Prints the game board
 ///The game board we want to print \param pGameBoard
 void printGameBoard(char **pGameBoard) {
+    printf("\n");
+    printf("\t");
     for (int j = 1; j <= M; ++j) {
         if (j != 0) {
             printf("%d \t", j);
@@ -31,9 +33,10 @@ void printGameBoard(char **pGameBoard) {
             printf("\t");
         }
     }
-    for (int i = 1; i <=N; ++i) {
+    printf("\n");
+    for (int i = 1; i <= N; ++i) {
         printf("%c \t", ConvertFomRoWToLettervalidMove(i));
-        for (int j = 0; j < M; ++j) {
+        for (int j = 1; j <= M; ++j) {
             printf("%c \t", pGameBoard[i][j]);
         }
         printf("\n");
@@ -45,21 +48,24 @@ int buildingGamePlay(char **gameBoard, movesList *moves_list, const boardPos sta
     moveCell *pMove = NULL;
     Move mov;
     Move pMovRef = {'0', '0'};
-    int moveCount = 0;
+    int moveCount = 1;
     int deletedNodes = 0;
-    gameBoard[convertFromLetterToRow(start[0])][ConvertChToDec( start[1])] = StartFlag;
+    gameBoard[convertFromLetterToRow(start[0])][ConvertChToDec(start[1])] = StartFlag;
     pMovRef.rows = (char) convertFromLetterToRow(start[0]);
-    pMovRef.cols = (char) ConvertChToDec( start[1]);
+    pMovRef.cols = (char) ConvertChToDec(start[1]);
     for (pMove = moves_list->head; pMove != NULL; pMove = pMove->next) {
         mov = pMove->move;
         mov.cols = (char) ((int) mov.cols + pMovRef.cols);
         mov.rows = (char) ((int) mov.rows + pMovRef.rows);
 
         if (checkBoardCell(board, gameBoard, mov)) {
-            gameBoard[(int) mov.rows][(int) mov.cols] = (char) ++moveCount;
+            gameBoard[(int) mov.rows][(int) mov.cols] =(char)ConvertIntToChar(moveCount);//(char )((moveCount)+'0');
+            moveCount++;
+            pMovRef.rows = mov.rows;
+            pMovRef.cols = mov.cols;
         } else {
             //delete from list
-            deleteNodeFromList(moves_list, pMove);///TODO : NEED TO CONNECT THE PERV
+            deleteNodeFromList(moves_list, pMove);
             deletedNodes++;
         }
     }
@@ -74,11 +80,14 @@ void deleteNodeFromList(movesList *moves_list, moveCell *toDelete) {
     else if (moves_list->head == toDelete) // or node->prev == NULL
     {
         moves_list->head = moves_list->head->next;
+        moves_list->head->prev = NULL;
     } else if (moves_list->tail == toDelete) // or node->next == NULL
     {
+        moves_list->tail = moves_list->tail->prev;
         moves_list->tail->next = NULL;
     } else {
         prevNode->next = toDelete->next;
+        toDelete->next->prev = prevNode;
     }
     //the list is dynamic (allocated with malloc) we have to free the node
     free(toDelete);
@@ -89,7 +98,7 @@ bool checkBoardCell(const char **board, char **gameBoard, Move pMove) {
     bool isValid = false;
     if (!isOutOfBorder((int) pMove.rows, (int) pMove.cols)) {
         if ((board[(int) pMove.rows][(int) pMove.cols] != '*') &&
-            (gameBoard[(int) pMove.rows][(int) pMove.cols] == '0')) {
+            (gameBoard[(int) pMove.rows][(int) pMove.cols] == '\0')) {
             isValid = true;
         }
     }
@@ -109,22 +118,20 @@ moveCell *CreateNode(movesList *pList, Move mov) {
     checkMemoryAllocation(item);
 
     item->move = mov;
-    item->next = pList->tail;
-    // item->prev = pList->tail->prev;
+    item->next = NULL;
+    item->prev = pList->tail;
+
     return item;
 }
 
 void insertNodeToEndList(movesList *pList, moveCell *pNode) {
-    moveCell *savePrev = NULL;
+
     if (isEmptyList(pList)) {
         pList->tail = pList->head = pNode;
         pList->tail->prev = pNode;
-        // pList->head->prev = NULL;
     } else {
-        savePrev = pList->tail->prev;
         pList->tail->next = pNode;
         pList->tail = pNode;
-        pList->tail->prev = savePrev;
     }
     pNode->next = NULL;
 }

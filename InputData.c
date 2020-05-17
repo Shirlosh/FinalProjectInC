@@ -15,12 +15,12 @@ movesArray **getMovesArray() {
     movesArray *pInput = NULL;
     movesArray **pMovesArr = NULL;
 
-    pMovesArr = (movesArray **) calloc(N+1, sizeof(movesArray *));
+    pMovesArr = (movesArray **) calloc(N, sizeof(movesArray *));
     checkMemoryAllocation(pMovesArr);
-    for (int i = 1; i <=N; ++i) {//rows
-        pMovesArr[i] = (movesArray *) calloc(M+1, sizeof(movesArray));
+    for (int i = 1; i <= N; ++i) {//rows
+        pMovesArr[i] = (movesArray *) calloc(M, sizeof(movesArray));
         checkMemoryAllocation(pMovesArr[i]);
-        for (int j = 1; j <=M; ++j) {//todo:chanded to start from 1 and not from 0//cols
+        for (int j = 1; j <= M; ++j) {
             pInput = &pMovesArr[i][j];
             scanf("%u", &(pInput->size));
             pInput->moves = getMovementArr(pInput->size);
@@ -33,12 +33,12 @@ movesArray **getMovesArray() {
 ///retuns the game arrat \return
 char **getCharBoard() {
     char **pGameBoard = NULL;
-    pGameBoard = (char **) calloc(N+1, sizeof(char *));
+    pGameBoard = (char **) calloc(N, sizeof(char *));
     checkMemoryAllocation(pGameBoard);
-    for (int i = 1; i <=N; ++i) {
-        pGameBoard[i] = (char *) calloc(M+1, sizeof(char));
+    for (int i = 1; i <= N; ++i) {
+        pGameBoard[i] = (char *) calloc(M, sizeof(char));
         checkMemoryAllocation(pGameBoard[i]);
-        for (int j = 1; j <=M; ++j) {
+        for (int j = 1; j <= M; ++j) {
             fflush(stdin);
             pGameBoard[i][j] = getchar();
         }
@@ -64,7 +64,6 @@ Move *getMovementArr(int size) {
     }
 
 
-
     return array;
 }
 
@@ -86,4 +85,52 @@ movesList *getMoveList() {
 
 
     return move_list;
+}
+
+/// Freeing the memory alocation of the list
+///Deallocates the space previously allocated by malloc(), calloc(),
+/// the list we want to free\param pList
+void freeMoveList(movesList *pList) {
+    moveCell *pNode = NULL;
+    moveCell *pNext = NULL;
+
+    for (pNode = pList->head; pNode != NULL; pNode = pNext) {
+        pNext = pNode->next;
+        free(pNode);
+    }
+}
+
+///  Freeing the memory alocation of Gameboard chars
+///Deallocates the space previously allocated by malloc(), calloc(),
+/// The game bord char type\param pBoard
+void freeGameBord(char **pBoard) {
+    for (int i = 0; i < N; ++i) {
+        free(pBoard[i]);
+    }
+    free(pBoard);
+}
+
+///  Freeing the memory alocation of movmentsArray and everything it holds
+///Deallocates the space previously allocated by malloc(), calloc(),
+/// The movement array\param pBoard
+void freeMovmentArray(movesArray **pMoveArr) {
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < M; ++j) {
+            free(pMoveArr[i][j].moves);
+        }
+        free(pMoveArr[i]);
+    }
+    free(pMoveArr);
+}
+///  Freeing the memory alocation of boardPosArray and everything it holds
+///Deallocates the space previously allocated by malloc(), calloc(),
+/// The boardPos Array\param pBoard
+void freeBoardPosArr(boardPosArray **board) {
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < M; ++j) {
+            free(board[i][j].positions);
+        }
+        free(board[i]);
+    }
+    free(board);
 }
