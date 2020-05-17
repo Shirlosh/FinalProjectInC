@@ -1,6 +1,6 @@
 //
 // Created by Idan Hauser on 11/04/2020.
-//בסדק
+//
 
 #ifndef FINALPROJECT_FUNCTIONS_H
 #define FINALPROJECT_FUNCTIONS_H
@@ -11,7 +11,7 @@
 #include "stdbool.h"
 #include "stdlib.h"
 
-#define ConvertFomRoWToLettervalidMove(row) (row+65)
+#define ConvertFomRoWToLettervalidMove(row) (row+64)
 #define ConvertChToDec(x) (x-'0')
 #define N 4
 #define M 4
@@ -48,9 +48,9 @@ bool isOutOfBorder(int row, int col);
 
 void reComputeMovemntArray(movesArray *pArr);
 
-boardPosArray** BuildingToNewArray(movesArray **moves);
+boardPosArray **BuildingToNewArray(movesArray **moves);
 
-void CopyValidBoardPositions(boardPosArray *array, movesArray *array1);
+void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove, int refRow);
 
 
 #endif //FINALPROJECT_FUNCTIONS_H

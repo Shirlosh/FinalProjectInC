@@ -12,12 +12,19 @@
 #include "stdbool.h"
 #include "stdlib.h"
 #include "Functions.h"
-
+#include "ListDisplayFunctions.h"
 
 Move *getMovementArr(int size);
 
 movesArray **getMovesArray();
 
 char **getCharBoard();
+
+movesList *getMoveList();
+
+void freeMoveList(movesList *pList);
+void freeGameBord(char **pBoard);
+void freeMovmentArray(movesArray **pMoveArr);
+void freeBoardPosArr(boardPosArray **board);
 
 #endif //FINALPROJECT_INPUTDATA_H

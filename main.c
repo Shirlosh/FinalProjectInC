@@ -1,3 +1,4 @@
+////VER 2.0
 
 #include <stdio.h>
 #include <stdio.h>
@@ -9,10 +10,19 @@
 
 
 int main() {
-
-    movesArray **pmoves_arr = NULL;
+    boardPosArray **arrayWithValidPositions = NULL;
+    boardPos start;
+    movesArray **pMoves_arr = NULL;
     char **pboard = NULL;
-    pmoves_arr = getMovesArray();
+    movesList *pMovesList = NULL;
+    pMoves_arr = getMovesArray();
     pboard = getCharBoard();
-    validMoves(pmoves_arr, pboard);
+    arrayWithValidPositions = validMoves(pMoves_arr, pboard);//this is the for Part 1 of the project
+    pMovesList = getMoveList();
+    display(pMovesList, start, pboard);
+
+    freeMoveList(pMovesList);
+    freeGameBord(pboard);
+    freeMovmentArray(pMoves_arr);
+
 }

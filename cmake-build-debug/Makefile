@@ -177,6 +177,33 @@ InputData.c.s:
 	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/InputData.c.s
 .PHONY : InputData.c.s
 
+ListDisplayFunctions.o: ListDisplayFunctions.c.o
+
+.PHONY : ListDisplayFunctions.o
+
+# target to build an object file
+ListDisplayFunctions.c.o:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o
+.PHONY : ListDisplayFunctions.c.o
+
+ListDisplayFunctions.i: ListDisplayFunctions.c.i
+
+.PHONY : ListDisplayFunctions.i
+
+# target to preprocess a source file
+ListDisplayFunctions.c.i:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.i
+.PHONY : ListDisplayFunctions.c.i
+
+ListDisplayFunctions.s: ListDisplayFunctions.c.s
+
+.PHONY : ListDisplayFunctions.s
+
+# target to generate assembly for a file
+ListDisplayFunctions.c.s:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.s
+.PHONY : ListDisplayFunctions.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -219,6 +246,9 @@ help:
 	@echo "... InputData.o"
 	@echo "... InputData.i"
 	@echo "... InputData.s"
+	@echo "... ListDisplayFunctions.o"
+	@echo "... ListDisplayFunctions.i"
+	@echo "... ListDisplayFunctions.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

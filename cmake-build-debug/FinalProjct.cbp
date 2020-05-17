@@ -90,9 +90,21 @@
 		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.h">
 			<Option target="FinalProjct"/>
 		</Unit>
+<<<<<<< HEAD
 		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/main.c">
 			<Option target="FinalProjct"/>
 		</Unit>
+=======
+		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.c">
+			<Option target="FinalProjct"/>
+		</Unit>
+		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h">
+			<Option target="FinalProjct"/>
+		</Unit>
+		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/main.c">
+			<Option target="FinalProjct"/>
+		</Unit>
+>>>>>>> Develop
 		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
