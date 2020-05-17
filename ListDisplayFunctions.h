@@ -6,7 +6,7 @@
 #define FINALPROJCT_LISTDISPLAYFUNCTIONS_H
 
 #include "Functions.h"
-
+#define ConvertIntToChar(x) (x+'0')
 #define convertFromLetterToRow(letter)(letter-64)
 #define StartFlag '#'
 

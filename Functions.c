@@ -37,9 +37,9 @@ bool CheckifMovesisValid(movesArray *pArray, char **board, int currRow, int Curr
     Move pMove;
     char tav;
     bool isValid = true;
-    int row, col;
+    int row=0, col=0;
 
-    for (int i = 0; i < pArray->size; ++i) {
+    for (int i = 0; i <pArray->size; ++i) {
         pMove = pArray->moves[i];
         row = currRow + (int) pMove.rows;
         col = CurrCol + (int) pMove.cols;
@@ -74,8 +74,10 @@ void checkMemoryAllocation(void *ptr) {
 /// returns true if it is out of border -> else False\return
 bool isOutOfBorder(int row, int col) {
     bool isOut = false;
-    if ((row > N - 1) || (col > M - 1)) {
+    if ((row > N - 1) || (col > M - 1) || (col < 1) || (row < 1)) {
+
         isOut = true;
+
     }
     return isOut;
 }
@@ -125,12 +127,12 @@ boardPosArray **BuildingToNewArray(movesArray **moves) {
     boardPosArray **validMovesArray = NULL;
     // boardPosArray *pValidArray = NULL;
 
-    validMovesArray = (boardPosArray **) calloc(N+1, sizeof(boardPosArray *));
+    validMovesArray = (boardPosArray **) calloc(N + 1, sizeof(boardPosArray *));
     checkMemoryAllocation(validMovesArray);
 
 
     for (int i = 1; i <= N; ++i) {
-        validMovesArray[i] = (boardPosArray *) calloc(M+1, sizeof(boardPosArray));
+        validMovesArray[i] = (boardPosArray *) calloc(M + 1, sizeof(boardPosArray));
         validMovesArray[i]->positions = NULL;
         checkMemoryAllocation(validMovesArray[i]);
         for (int j = 1; j <= M; ++j) {
@@ -162,8 +164,8 @@ void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove, int r
             checkMemoryAllocation(newArr[j].positions);
             bpDes = newArr[j].positions;
             for (int i = 1; i <= arrSize; ++i) {
-                bpDes[i-1][0] = j + validMove[i].moves->cols;
-                bpDes[i-1][1] = (char) ConvertFomRoWToLettervalidMove((validMove[i].moves->rows + refRow));
+                bpDes[i - 1][0] = j + validMove[i].moves->cols;
+                bpDes[i - 1][1] = (char) ConvertFomRoWToLettervalidMove((validMove[i].moves->rows + refRow));
 
             }
         }

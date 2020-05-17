@@ -22,6 +22,9 @@ char **getCharBoard();
 
 movesList *getMoveList();
 
-
+void freeMoveList(movesList *pList);
+void freeGameBord(char **pBoard);
+void freeMovmentArray(movesArray **pMoveArr);
+void freeBoardPosArr(boardPosArray **board);
 
 #endif //FINALPROJECT_INPUTDATA_H
