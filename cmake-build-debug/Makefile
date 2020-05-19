@@ -204,6 +204,33 @@ ListDisplayFunctions.c.s:
 	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.s
 .PHONY : ListDisplayFunctions.c.s
 
+TreePath.o: TreePath.c.o
+
+.PHONY : TreePath.o
+
+# target to build an object file
+TreePath.c.o:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/TreePath.c.o
+.PHONY : TreePath.c.o
+
+TreePath.i: TreePath.c.i
+
+.PHONY : TreePath.i
+
+# target to preprocess a source file
+TreePath.c.i:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/TreePath.c.i
+.PHONY : TreePath.c.i
+
+TreePath.s: TreePath.c.s
+
+.PHONY : TreePath.s
+
+# target to generate assembly for a file
+TreePath.c.s:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/TreePath.c.s
+.PHONY : TreePath.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -249,6 +276,9 @@ help:
 	@echo "... ListDisplayFunctions.o"
 	@echo "... ListDisplayFunctions.i"
 	@echo "... ListDisplayFunctions.s"
+	@echo "... TreePath.o"
+	@echo "... TreePath.i"
+	@echo "... TreePath.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

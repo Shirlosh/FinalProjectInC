@@ -4,6 +4,7 @@
 
 #ifndef FINALPROJECT_INPUTDATA_H
 #define FINALPROJECT_INPUTDATA_H
+#define _CRT_SECURE_NO_WARNINGS
 
 
 #include <stdio.h>
@@ -23,8 +24,11 @@ char **getCharBoard();
 movesList *getMoveList();
 
 void freeMoveList(movesList *pList);
+
 void freeGameBord(char **pBoard);
+
 void freeMovmentArray(movesArray **pMoveArr);
+
 void freeBoardPosArr(boardPosArray **board);
 
 #endif //FINALPROJECT_INPUTDATA_H

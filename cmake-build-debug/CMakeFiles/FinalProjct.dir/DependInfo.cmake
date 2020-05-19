@@ -6,10 +6,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/Functions.c.o"
   "/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/InputData.c.o"
-<<<<<<< HEAD
-=======
   "/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o"
->>>>>>> Develop
+  "/Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/TreePath.c.o"
   "/Users/idanhauser/CLionProjects/FinalProjectInC/main.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

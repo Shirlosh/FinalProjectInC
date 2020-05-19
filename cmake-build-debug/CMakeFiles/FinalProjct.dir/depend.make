@@ -13,6 +13,10 @@ CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o: ../Functions.h
 CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o: ../ListDisplayFunctions.c
 CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o: ../ListDisplayFunctions.h
 
+CMakeFiles/FinalProjct.dir/TreePath.c.o: ../Functions.h
+CMakeFiles/FinalProjct.dir/TreePath.c.o: ../TreePath.c
+CMakeFiles/FinalProjct.dir/TreePath.c.o: ../TreePath.h
+
 CMakeFiles/FinalProjct.dir/main.c.o: ../Functions.h
 CMakeFiles/FinalProjct.dir/main.c.o: ../InputData.h
 CMakeFiles/FinalProjct.dir/main.c.o: ../ListDisplayFunctions.h

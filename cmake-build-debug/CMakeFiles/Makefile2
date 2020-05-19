@@ -74,20 +74,12 @@ clean: CMakeFiles/FinalProjct.dir/clean
 CMakeFiles/FinalProjct.dir/all:
 	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/depend
 	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/build
-<<<<<<< HEAD
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target FinalProjct"
-=======
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target FinalProjct"
->>>>>>> Develop
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target FinalProjct"
 .PHONY : CMakeFiles/FinalProjct.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/FinalProjct.dir/rule: cmake_check_build_system
-<<<<<<< HEAD
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles 4
-=======
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles 5
->>>>>>> Develop
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FinalProjct.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/FinalProjct.dir/rule

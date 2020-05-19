@@ -4,6 +4,7 @@
 
 #ifndef FINALPROJECT_FUNCTIONS_H
 #define FINALPROJECT_FUNCTIONS_H
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdio.h>
@@ -11,10 +12,17 @@
 #include "stdbool.h"
 #include "stdlib.h"
 
-#define ConvertFomRoWToLettervalidMove(row) (row+64)
-#define ConvertChToDec(x) (x-'0')
+
+#define convertRowToLetter(row) (row+64)
+#define convertChToInt(x) (x-'0')
+#define convertIntToCh(x) (x+'0')
+#define convertLetterToRow(letter)(letter-64)
+
 #define N 4
 #define M 4
+
+#define ROWS N+1
+#define COLS M+1
 
 
 typedef char boardPos[2];
@@ -52,5 +60,6 @@ boardPosArray **BuildingToNewArray(movesArray **moves);
 
 void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove, int refRow);
 
+void copyGameBoard(char *pDes, char *pSrc);
 
 #endif //FINALPROJECT_FUNCTIONS_H

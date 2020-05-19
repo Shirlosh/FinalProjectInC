@@ -4,12 +4,14 @@
 
 #ifndef FINALPROJCT_LISTDISPLAYFUNCTIONS_H
 #define FINALPROJCT_LISTDISPLAYFUNCTIONS_H
+#define _CRT_SECURE_NO_WARNINGS
 
 #include "Functions.h"
-#define ConvertIntToChar(x) (x+'0')
-#define convertFromLetterToRow(letter)(letter-64)
+
+
 #define StartFlag '#'
 
+///***List Defintions***
 typedef struct _moveCell {
     Move move;
     struct _moveCell *next, *prev;
@@ -19,6 +21,7 @@ typedef struct _movesList {
     moveCell *head;
     moveCell *tail;
 } movesList;
+
 
 int buildingGamePlay(char **gameBoard, movesList *moves_list, const boardPos start, const char **board);
 
@@ -31,7 +34,7 @@ bool checkBoardCell(const char **board, char **gameBoard, Move pMove);
 
 void printGameBoard(char **pGameBoard);
 
-//List functions
+///***List functions***
 
 void insertNodeToEndList(movesList *pList, moveCell *pNode);
 
