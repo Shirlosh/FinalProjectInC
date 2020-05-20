@@ -4,9 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/FindFullPathList.c.o"
   "/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/Functions.c.o"
   "/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/InputData.c.o"
   "/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o"
+  "/Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/SaveToFile.c.o"
   "/Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/TreePath.c.o"
   "/Users/idanhauser/CLionProjects/FinalProjectInC/main.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/main.c.o"
   )

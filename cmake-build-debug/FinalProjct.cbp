@@ -78,6 +78,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.c">
+			<Option target="FinalProjct"/>
+		</Unit>
+		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.h">
+			<Option target="FinalProjct"/>
+		</Unit>
 		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c">
 			<Option target="FinalProjct"/>
 		</Unit>
@@ -94,6 +100,12 @@
 			<Option target="FinalProjct"/>
 		</Unit>
 		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h">
+			<Option target="FinalProjct"/>
+		</Unit>
+		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.c">
+			<Option target="FinalProjct"/>
+		</Unit>
+		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.h">
 			<Option target="FinalProjct"/>
 		</Unit>
 		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.c">
