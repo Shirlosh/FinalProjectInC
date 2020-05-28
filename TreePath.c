@@ -6,12 +6,17 @@
 
 pathTree findAllPossiblePaths(boardPos start, movesArray **moves, char **board) {
 
-    boardPosArray **pArr;
+
+    boardPosArray **arrayWithValidPositions;
+    boardPos *branch;
     pathTree Tree;
 
-    pArr = validMoves(moves, board);
+    arrayWithValidPositions = validMoves(moves, board);
 
-    Tree.head = BuildTree(start, pArr);
+    branch = (boardPos*)malloc(sizeof(boardPos));
+    checkMemoryAllocation(branch);
+
+    Tree.head = BuildTree(start, arrayWithValidPositions,branch,1);
     return Tree;
 
 }
