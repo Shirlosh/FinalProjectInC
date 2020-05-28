@@ -26,7 +26,7 @@ int main() {
     display(pMovesList, start, pboard);///this is the for Part 2 of the project
 
 
-    //findAllPossiblePaths(start, pMoves_arr, arrayWithValidPositions);///this is the for Part 3 of the project
+   // findAllPossiblePaths(start, pMoves_arr, pboard);///this is the for Part 3 of the project
 
     //  findPathCoveringAllBoard(start,pMoves_arr,pboard);//This is for part 4////
 
