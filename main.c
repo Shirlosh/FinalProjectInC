@@ -22,7 +22,7 @@ int main() {
 	display(pMovesList, start, pboard);///this is the for Part 2 of the project
 
 
-	//findAllPossiblePaths(start, pMoves_arr, arrayWithValidPositions);///this is the for Part 3 of the project
+	//findAllPossiblePaths(start, pMoves_arr, pboard);///this is the for Part 3 of the project
 	freeMoveList(pMovesList);
 	freeGameBord(pboard);
 	freeMovmentArray(pMoves_arr);
