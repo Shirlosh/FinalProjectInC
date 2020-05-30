@@ -54,9 +54,11 @@ bool CheckifMovesisValid(movesArray *pArray, char **board, int currRow, int Curr
             isValid = false;
         }
         if (!isValid) {
-            checkAgain = deleteillegalMove(pArray,i);////TODO:I need to fix it, because when i move the last one to the ont i want to delete, i dont check it	//HaveTOcheck it
+            checkAgain = deleteillegalMove(pArray,
+                                           i);////TODO:I need to fix it, because when i move the last one to the ont i want to delete, i dont check it	//HaveTOcheck it
             if (checkAgain == true) {
                 i = i - 1;
+                checkAgain = false;
             }
         }
     }
