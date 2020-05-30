@@ -46,7 +46,7 @@ typedef struct _boardPosArray {
 
 boardPosArray **validMoves(movesArray **moves, char **board);
 
-void deleteillegalMove(movesArray *pArray, int IdxToDel);
+bool deleteillegalMove(movesArray *pArray, int IdxToDel);
 
 void checkMemoryAllocation(void *ptr);
 
