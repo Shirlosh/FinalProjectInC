@@ -8,7 +8,9 @@
 
 #include "Functions.h"
 
-struct treeNodeListCell;
+
+
+struct _treeNodeListCell;
 
 typedef struct _treeNode {
     boardPos position;
@@ -27,10 +29,15 @@ typedef struct _pathTree {
 } pathTree;
 
 
-treeNode *BuildTree(boardPos pos, boardPosArray **posArr);
+treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, int branchSize);
 pathTree findAllPossiblePaths(boardPos start, movesArray **moves, char **board);
-bool isloop(boardPos pos);
+treeNode *CreateNewTreeNode(boardPos pos, int listCellSize);
+void reSizeTreelist(treeNode **node, int logicalSize);
+bool isloop(boardPos pos, boardPos *branch, int size);
 
+
+void printTree(pathTree tr);
+void printTreeRec(treeNode *node);
 
 
 #endif //FINALPROJCT_TREEPATH_H
