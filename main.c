@@ -30,7 +30,9 @@ int main() {
     start[1] = (char)1;
     findAllPossiblePaths(start, pMoves_arr, pboard);///this is the for Part 3 of the project
 
-     findPathCoveringAllBoard(start,pMoves_arr,pboard);//This is for part 4////
+   // findAllPossiblePaths(start, pMoves_arr, pboard);///this is the for Part 3 of the project
+
+    //  findPathCoveringAllBoard(start,pMoves_arr,pboard);//This is for part 4////
 
  //   saveListToBinFile(file_name, arrayWithValidPositions[0]);//This is for part 5////todo : need to check why this functions calls only as one dimesntion arr,,,
 
