@@ -160,8 +160,6 @@ boardPosArray **BuildingToNewArray(movesArray **moves) {
 ///this funcion build a boardposition array to put in every cell, this new arr holds letters and numbpers as positions
 ///holds the row of the boardPosArray \param newArr
 /// validMove arr that holds all the vallid moves of each cell in the movesArray\param validMove
-
-
 void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove, int refRow) {
     unsigned int arrSize;
     boardPos *bpDes = NULL;
@@ -173,9 +171,9 @@ void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove, int r
             newArr[j].positions = (boardPos *) calloc(arrSize, sizeof(boardPos));
             checkMemoryAllocation(newArr[j].positions);
             bpDes = newArr[j].positions;
-            for (int i = 1; i <= arrSize; ++i) {
-                bpDes[i - 1][0] = (char) convertRowToLetter((validMove[i].moves->rows + refRow));
-                bpDes[i - 1][1] = j + validMove[i].moves->cols;
+            for (int i = 0; i < arrSize; ++i) {//should start from 0
+                bpDes[i ][0] = (char) convertRowToLetter((validMove[j].moves[i].rows + refRow));
+                bpDes[i ][1] = j + validMove[j].moves[i].cols;
 
             }
         }
