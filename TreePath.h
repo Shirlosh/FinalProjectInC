@@ -14,7 +14,7 @@ struct _treeNodeListCell;
 
 typedef struct _treeNode {
     boardPos position;
-    struct treeNodeListCell *next_possible_positions;
+    struct _treeNodeListCell *next_possible_positions;
 } treeNode;
 
 typedef struct _treeNodeListCell {
@@ -29,15 +29,17 @@ typedef struct _pathTree {
 } pathTree;
 
 
-treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, int branchSize);
+treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, unsigned int branchSize);
 pathTree findAllPossiblePaths(boardPos start, movesArray **moves, char **board);
-treeNode *CreateNewTreeNode(boardPos pos, int listCellSize);
-void reSizeTreelist(treeNode **node, int logicalSize);
-bool isloop(boardPos pos, boardPos *branch, int size);
 
 
-void printTree(pathTree tr);
-void printTreeRec(treeNode *node);
+boardPos *branchDuplicate (boardPos*oldBranch, int *branchSize, boardPos pos);
+treeNode *CreateNewTreeNode(boardPos pos, unsigned int listCellSize);
+void reSizeTreelist(treeNode **node, unsigned int logicalSize, unsigned int physicalSize);
+bool isloop(boardPos *branch, unsigned int size);
 
+
+//void printTree(pathTree tr);
+//void printTreeRec(treeNode *node);
 
 #endif //FINALPROJCT_TREEPATH_H

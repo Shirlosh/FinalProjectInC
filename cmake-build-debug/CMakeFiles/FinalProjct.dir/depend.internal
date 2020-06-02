@@ -6,6 +6,7 @@ CMakeFiles/FinalProjct.dir/FindFullPathList.c.o
  /Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h
+ /Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
 CMakeFiles/FinalProjct.dir/Functions.c.o
  /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c
  /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
@@ -32,4 +33,5 @@ CMakeFiles/FinalProjct.dir/main.c.o
  /Users/idanhauser/CLionProjects/FinalProjectInC/InputData.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.h
+ /Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/main.c

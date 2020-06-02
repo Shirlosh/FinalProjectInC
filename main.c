@@ -27,12 +27,10 @@ int main() {
     display(pMovesList, start, pboard);///this is the for Part 2 of the project
 
     start[0] = 'A';
-    start[1] = (char)1;
+    start[1] = (char)2;
     findAllPossiblePaths(start, pMoves_arr, pboard);///this is the for Part 3 of the project
 
-   // findAllPossiblePaths(start, pMoves_arr, pboard);///this is the for Part 3 of the project
-
-    //  findPathCoveringAllBoard(start,pMoves_arr,pboard);//This is for part 4////
+      findPathCoveringAllBoard(start,pMoves_arr,pboard);//This is for part 4////
 
  //   saveListToBinFile(file_name, arrayWithValidPositions[0]);//This is for part 5////todo : need to check why this functions calls only as one dimesntion arr,,,
 

@@ -8,6 +8,7 @@
 
 #include "Functions.h"
 #include "ListDisplayFunctions.h"
+#include "TreePath.h"
 
 movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **board);
 

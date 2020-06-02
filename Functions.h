@@ -12,7 +12,6 @@
 #include "stdbool.h"
 #include "stdlib.h"
 
-
 #define convertRowToLetter(row) (row+64)
 #define convertChToInt(x) (x-'0')
 #define convertIntToCh(x) (x+'0')
