@@ -8,8 +8,8 @@
 int display(movesList *moves_list, boardPos start, char **board) {
     char **pGameBoard = NULL;
     int deletedNodes = 0;
-    start[0] = 'A';
-    start[1] = '2';
+   // start[0] = 'A';
+    //start[1] = '1';
     pGameBoard = (char **) calloc(ROWS, sizeof(char *)); //added 1
     checkMemoryAllocation(pGameBoard);
     for (int i = 1; i < ROWS; ++i) {

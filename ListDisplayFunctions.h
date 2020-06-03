@@ -46,5 +46,6 @@ void makeEmptyList(movesList *pList);
 
 bool isEmptyList(movesList *pList);
 
+void insertDataToHeadList(movesList *pList, Move move);
 
 #endif //FINALPROJCT_LISTDISPLAYFUNCTIONS_H

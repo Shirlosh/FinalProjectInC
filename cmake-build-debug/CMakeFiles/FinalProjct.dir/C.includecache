@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.c
+FindFullPathList.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.h
+Functions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
+
+/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.h
+Functions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
+ListDisplayFunctions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h
+TreePath.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
+
 /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 stdio.h
 -
@@ -38,6 +52,18 @@ ListDisplayFunctions.h
 Functions.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 
+/Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.h
+Functions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
+
+/Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.c
+TreePath.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
+
+/Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
+Functions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
+
 /Users/idanhauser/CLionProjects/FinalProjectInC/main.c
 stdio.h
 -
@@ -53,4 +79,10 @@ Functions.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 InputData.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/InputData.h
+SaveToFile.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.h
+FindFullPathList.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.h
+TreePath.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
 

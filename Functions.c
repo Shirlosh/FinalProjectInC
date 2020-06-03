@@ -36,28 +36,32 @@ boardPosArray **validMoves(movesArray **moves, char **board) {
 bool CheckifMovesisValid(movesArray *pArray, char **board, int currRow, int CurrCol) {
     Move pMove;
     char tav;
+    bool checkAgain = false;
     bool isValid = true;
     int row = 0, col = 0;
 
-	for (int i = 0; i < pArray->size; ++i) {
-		pMove = pArray->moves[i];
-		row = currRow + (int)pMove.rows;
-		col = CurrCol + (int)pMove.cols;
+    for (int i = 0; i < pArray->size; ++i) {
+        pMove = pArray->moves[i];
+        row = currRow + (int) pMove.rows;
+        col = CurrCol + (int) pMove.cols;
 
-		if (!isOutOfBorder(row, col)) {
-			tav = (char)board[row][col];
-			if (tav == '*') {
-				isValid = false;
-			}
-		}
-		else {
-			isValid = false;
-		}
-		if (!isValid) {
-			deleteillegalMove(pArray, i);
-		}
-	}
-	return isValid;
+        if (!isOutOfBorder(row, col)) {
+            tav = (char) board[row][col];
+            if (tav == '*') {
+                isValid = false;
+            }
+        } else {
+            isValid = false;
+        }
+        if (!isValid) {
+            checkAgain = deleteillegalMove(pArray, i);
+            if (checkAgain == true) {
+                i = i - 1;
+                checkAgain = false;
+            }
+        }
+    }
+    return isValid;
 }
 
 ///checks if memory allocation is valid
@@ -75,40 +79,41 @@ void checkMemoryAllocation(void *ptr) {
 ///the col of the new pos \param col
 /// returns true if it is out of border -> else False\return
 bool isOutOfBorder(int row, int col) {
-	bool isOut = false;
-	if ((row > ROWS) || (col > COLS) || (col < 1) || (row < 1)) {
+    bool isOut = false;
+    if ((row >= ROWS) || (col >= COLS) || (col < 1) || (row < 1)) {//todo:need to test it,
 
-		isOut = true;
+        isOut = true;
 
-	}
-	return isOut;
+    }
+    return isOut;
 }
 
 /// Check if the position we have to remove is in the end of the array, if it is send to
 ///"reComputeMovemntArray" and deletes it from the arr, if the position in not at the end, it switch it to the end and removes it
 ///The moves object \param pArray
 ///the index we want to delete in the array \param idxToDel
-void deleteillegalMove(movesArray *pArray, int idxToDel) {
-	Move pMove;
-	unsigned int currSize = pArray->size;
-	if (currSize == 1) {//the array holds only one movement
-		if (idxToDel == 0) {//the array holds only the movement we have to delete
-			pArray->size = 0;
-			free(pArray->moves);
-		}
-		else {
-			printf("ERROR");
-			exit(1);
-		}
-	}
-	else if (idxToDel == currSize - 1) {//the movement is the last in the array
-		reComputeMovemntArray(pArray);
-	}
-	else {
-		pMove = pArray->moves[currSize - 1];//pMove holds the last one on the arr
-		pArray->moves[idxToDel] = pMove;//Writing the last move on the one we want to delete
-		reComputeMovemntArray(pArray);
-	}
+bool deleteillegalMove(movesArray *pArray, int idxToDel) {
+    Move pMove;
+    bool lastMoved = false;
+    unsigned int currSize = pArray->size;
+    if (currSize == 1) {//the array holds only one movement
+        if (idxToDel == 0) {//the array holds only the movement we have to delete
+            pArray->size = 0;
+            free(pArray->moves);
+        } else {
+            printf("ERROR");
+            exit(1);
+        }
+    } else if (idxToDel == currSize - 1) {//the movement is the last in the array
+        reComputeMovemntArray(pArray);
+    } else {
+        ////TODO:need to add a flag if im here;
+        lastMoved = true;
+        pMove = pArray->moves[currSize - 1];//pMove holds the last one on the arr
+        pArray->moves[idxToDel] = pMove;//Writing the last move on the one we want to delete
+        reComputeMovemntArray(pArray);
+    }
+    return lastMoved;
 }
 
 /// realloc array and reduce its size in one.
@@ -129,23 +134,23 @@ void reComputeMovemntArray(movesArray *pArr) {
 ///the movement array with all the valid moves \param moves
 ///return the new array as asked in part A \return
 boardPosArray **BuildingToNewArray(movesArray **moves) {
-	boardPosArray **validMovesArray = NULL;
+    boardPosArray **validMovesArray = NULL;
 
-	validMovesArray = (boardPosArray **)calloc(ROWS, sizeof(boardPosArray *));
-	checkMemoryAllocation(validMovesArray);
+    validMovesArray = (boardPosArray **) calloc(ROWS, sizeof(boardPosArray *));
+    checkMemoryAllocation(validMovesArray);
 
 
-	for (int i = 1; i < ROWS; ++i) {
-		validMovesArray[i] = (boardPosArray *)calloc(COLS, sizeof(boardPosArray));
-		validMovesArray[i]->positions = NULL;
-		checkMemoryAllocation(validMovesArray[i]);
-		for (int j = 1; j < COLS; ++j) {
-			validMovesArray[i][j].size = (moves[i][j]).size;
-		}
-		CopyValidBoardPositions(validMovesArray[i], moves[i], i);
+    for (int i = 1; i < ROWS; ++i) {
+        validMovesArray[i] = (boardPosArray *) calloc(COLS, sizeof(boardPosArray));
+        validMovesArray[i]->positions = NULL;
+        checkMemoryAllocation(validMovesArray[i]);
+        for (int j = 1; j < COLS; ++j) {
+            validMovesArray[i][j].size = (moves[i][j]).size;
+        }
+        CopyValidBoardPositions(validMovesArray[i], moves[i], i);
 
-	}
-	return validMovesArray;
+    }
+    return validMovesArray;
 }
 
 
@@ -154,22 +159,20 @@ boardPosArray **BuildingToNewArray(movesArray **moves) {
 ///this funcion build a boardposition array to put in every cell, this new arr holds letters and numbpers as positions
 ///holds the row of the boardPosArray \param newArr
 /// validMove arr that holds all the vallid moves of each cell in the movesArray\param validMove
-
-
 void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove, int refRow) {
     unsigned int arrSize;
     boardPos *bpDes = NULL;
 
 
-	for (int j = 1; j < COLS; ++j) {
-		arrSize = newArr[j].size;
-		if (arrSize > 0) {
-			newArr[j].positions = (boardPos *)calloc(arrSize, sizeof(boardPos));
-			checkMemoryAllocation(newArr[j].positions);
-			bpDes = newArr[j].positions;
-			for (int i = 1; i <= arrSize; ++i) {
-				bpDes[i - 1][0] = j + validMove[i].moves->cols;
-				bpDes[i - 1][1] = (char)convertRowToLetter((validMove[i].moves->rows + refRow));
+    for (int j = 1; j < COLS; ++j) {
+        arrSize = newArr[j].size;
+        if (arrSize > 0) {
+            newArr[j].positions = (boardPos *) calloc(arrSize, sizeof(boardPos));
+            checkMemoryAllocation(newArr[j].positions);
+            bpDes = newArr[j].positions;
+            for (int i = 0; i < arrSize; ++i) {//should start from 0
+                bpDes[i][0] = (char) convertRowToLetter((validMove[j].moves[i].rows + refRow));
+                bpDes[i][1] = j + validMove[j].moves[i].cols;
 
             }
         }

@@ -12,7 +12,6 @@
 #include "stdbool.h"
 #include "stdlib.h"
 
-
 #define convertRowToLetter(row) (row+64)
 #define convertChToInt(x) (x-'0')
 #define convertIntToCh(x) (x+'0')
@@ -46,7 +45,7 @@ typedef struct _boardPosArray {
 
 boardPosArray **validMoves(movesArray **moves, char **board);
 
-void deleteillegalMove(movesArray *pArray, int IdxToDel);
+bool deleteillegalMove(movesArray *pArray, int IdxToDel);
 
 void checkMemoryAllocation(void *ptr);
 

@@ -1,5 +1,5 @@
 //
-// Created by Idan Hauser on 20/05/2020.
+// Created by Shirly on 20/05/2020.
 //
 
 #ifndef FINALPROJCT_TREEPATH_H
@@ -8,11 +8,11 @@
 
 #include "Functions.h"
 
-struct treeNodeListCell;
+struct _treeNodeListCell;
 
 typedef struct _treeNode {
     boardPos position;
-    struct treeNodeListCell *next_possible_positions;
+    struct _treeNodeListCell *next_possible_positions;
 } treeNode;
 
 typedef struct _treeNodeListCell {
@@ -27,10 +27,15 @@ typedef struct _pathTree {
 } pathTree;
 
 
-treeNode *BuildTree(boardPos pos, boardPosArray **posArr);
-pathTree findAllPossiblePaths(boardPos start, movesArray **moves, char **board);
-bool isloop(boardPos pos);
+treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, unsigned int branchSize);
 
+pathTree findAllPossiblePaths(boardPos start, movesArray **moves, char **board);
+
+boardPos *branchDuplicate(boardPos *oldBranch, int *branchSize, boardPos pos);
+
+treeNode *CreateNewTreeNode(boardPos pos, unsigned int listCellSize);
+
+bool isLoop(boardPos *branch, unsigned int size);
 
 
 #endif //FINALPROJCT_TREEPATH_H
