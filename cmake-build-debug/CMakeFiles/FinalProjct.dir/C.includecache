@@ -20,22 +20,6 @@ ListDisplayFunctions.h
 TreePath.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
 
-/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.c
-stdio.h
--
-stdio.h
--
-string.h
--
-assert.h
--
-stdbool.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/stdbool.h
-stdlib.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/stdlib.h
-Functions.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
-
 /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 stdio.h
 -
@@ -47,20 +31,6 @@ stdbool.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/stdbool.h
 stdlib.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/stdlib.h
-
-/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.c
-InputData.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/InputData.h
-stdio.h
--
-string.h
--
-stdbool.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/stdbool.h
-stdlib.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/stdlib.h
-Functions.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
 
 /Users/idanhauser/CLionProjects/FinalProjectInC/InputData.h
 stdio.h
@@ -78,17 +48,9 @@ Functions.h
 ListDisplayFunctions.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h
 
-/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.c
-ListDisplayFunctions.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h
-
 /Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h
 Functions.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
-
-/Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.c
-SaveToFile.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.h
 
 /Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.h
 Functions.h

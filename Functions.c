@@ -54,8 +54,7 @@ bool CheckifMovesisValid(movesArray *pArray, char **board, int currRow, int Curr
             isValid = false;
         }
         if (!isValid) {
-            checkAgain = deleteillegalMove(pArray,
-                                           i);////TODO:I need to fix it, because when i move the last one to the ont i want to delete, i dont check it	//HaveTOcheck it
+            checkAgain = deleteillegalMove(pArray, i);
             if (checkAgain == true) {
                 i = i - 1;
                 checkAgain = false;
@@ -172,8 +171,8 @@ void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove, int r
             checkMemoryAllocation(newArr[j].positions);
             bpDes = newArr[j].positions;
             for (int i = 0; i < arrSize; ++i) {//should start from 0
-                bpDes[i ][0] = (char) convertRowToLetter((validMove[j].moves[i].rows + refRow));
-                bpDes[i ][1] = j + validMove[j].moves[i].cols;
+                bpDes[i][0] = (char) convertRowToLetter((validMove[j].moves[i].rows + refRow));
+                bpDes[i][1] = j + validMove[j].moves[i].cols;
 
             }
         }

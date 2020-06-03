@@ -9,6 +9,7 @@ void findPathCoveringAllBoard_helper(movesList *pList, boardPosArray **pArray);
 
 unsigned int countNumberOfValidCells(char **pBoard);
 
+
 movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **board) {
     Move mov;
     pathTree pathTree;
@@ -22,6 +23,17 @@ movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **b
     mov.cols = (char) convertChToInt(start[1]);
     insertDataToEndList(moveLst, mov);
     findPathCoveringAllBoard_helper(moveLst, arrayWithValidPositions);
+    insertDataToHeadList(moveLst, mov);
+}
+
+void insertDataToHeadList(movesList *pList, Move move) {
+    moveCell *pMoveNode = NULL;
+    pMoveNode = CreateNode(pList, move);
+    pMoveNode->next = pList->head;
+    if (pList->tail == NULL)
+        pList->tail = pMoveNode;
+    pList->head = pMoveNode;
+    pList->head->prev = NULL;
 }
 
 unsigned int countNumberOfValidCells(char **pBoard) {
