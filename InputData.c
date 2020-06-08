@@ -38,7 +38,7 @@ char **getCharBoard() {
 
 	pGameBoard = (char **)calloc(ROWS, sizeof(char *));
 	checkMemoryAllocation(pGameBoard);
-	getchar(); //add
+	//getchar(); //add
 	for (int i = 1; i < ROWS; ++i) {
 
 		pGameBoard[i] = (char *)calloc(COLS, sizeof(char));

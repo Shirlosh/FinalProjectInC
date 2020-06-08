@@ -5,16 +5,15 @@
 #include "TreePath.h"
 
 
-
 pathTree findAllPossiblePaths(boardPos start, movesArray **moves, char **board) {
 
     boardPosArray **pArr;
-    boardPos *branch=NULL;
+    boardPos *branch = NULL;
     pathTree Tree;
 
     pArr = validMoves(moves, board);
 
-    Tree.head = BuildTree(start, pArr,branch,0);
+    Tree.head = BuildTree(start, pArr, branch, 0);
     return Tree;
 
 }
@@ -22,36 +21,37 @@ pathTree findAllPossiblePaths(boardPos start, movesArray **moves, char **board) 
 
 ///returns the head of the treepath,
 ///next possible position is a list of leaf , the last leaf in the leaf point to NULL
-treeNode *BuildTree(boardPos pos, boardPosArray **posArr,boardPos *branch, unsigned int branchSize) {
+treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, unsigned int branchSize) {
 
     treeNodeListCell *next;
     treeNode *newNode;
     boardPos *newBranch;
     int size, ROW, COL;
-
+    // convert pos to ROW and COL
     ROW = convertLetterToRow (pos[0]);
-    COL = (int)(pos[1]);  // convert pos to ROW and COL
-    size = posArr[ROW][COL].size; // utilize the size
-
-    if (size == 0) { // base case only leaf
+    COL = (int) (pos[1]);
+    // utilize the size
+    size = posArr[ROW][COL].size;
+// base case only leaf
+    if (size == 0) {
         newNode = CreateNewTreeNode(pos, 0);
         return newNode;
     }
 
     newBranch = branchDuplicate(branch, &branchSize, pos);
-
-    if (isLoop(newBranch,branchSize)==false) { // if there is no loops, create the root and build the tree
+    // if there is no loops, create the root and build the tree
+    if (isLoop(newBranch, branchSize) == false) {
 
         newNode = CreateNewTreeNode(pos, size);
         next = newNode->next_possible_positions;
-
-        for (int i = 0; i < size; i++) { // build the list
-
-            pos = posArr[ROW][COL].positions[i];//the next position
-            next->node = BuildTree(pos, posArr, newBranch,branchSize);
-
-            if (newNode->next_possible_positions->node != NULL) { // if the node is null utilize other node in it else - go to the next list node
-                next->next = (treeNodeListCell*)malloc(sizeof(treeNodeListCell));
+        // build the list
+        for (int i = 0; i < size; i++) {
+            //the next position
+            pos = posArr[ROW][COL].positions[i];
+            next->node = BuildTree(pos, posArr, newBranch, branchSize);
+            // if the node is null utilize other node in it else - go to the next list node
+            if (newNode->next_possible_positions->node != NULL) {
+                next->next = (treeNodeListCell *) malloc(sizeof(treeNodeListCell));
                 checkMemoryAllocation(next->next);
                 next = next->next;
             }
@@ -66,12 +66,12 @@ treeNode *BuildTree(boardPos pos, boardPosArray **posArr,boardPos *branch, unsig
 
 ///dupelicate the branch and insert the next new position
 /// returns the new branch
-boardPos *branchDuplicate(boardPos*oldBranch,int *branchSize, boardPos pos) {
+boardPos *branchDuplicate(boardPos *oldBranch, int *branchSize, boardPos pos) {
 
     boardPos *newBranch;
     int i;
 
-    newBranch = (boardPos*)malloc(((*branchSize)+1) * sizeof(boardPos));
+    newBranch = (boardPos *) malloc(((*branchSize) + 1) * sizeof(boardPos));
     checkMemoryAllocation(newBranch);
 
     for (i = 0; i < *branchSize; i++) { // copy the old position
@@ -90,11 +90,11 @@ boardPos *branchDuplicate(boardPos*oldBranch,int *branchSize, boardPos pos) {
 }
 
 
-bool isLoop(boardPos *branch,unsigned int size) {
+bool isLoop(boardPos *branch, unsigned int size) {
 
-    for (int i = 0; i < size - 1;i++) { // goes through the array
+    for (int i = 0; i < size - 1; i++) { // goes through the array
 
-        if ( (branch[i][0] == branch[size - 1][0]) && (branch[i][1] == branch[size - 1][1]) )
+        if ((branch[i][0] == branch[size - 1][0]) && (branch[i][1] == branch[size - 1][1]))
             return true;
     }
 
@@ -107,7 +107,7 @@ bool isLoop(boardPos *branch,unsigned int size) {
 treeNode *CreateNewTreeNode(boardPos pos, unsigned int listCellSize) {
     treeNode *newNode;
 
-    newNode = (treeNode*)malloc(sizeof(treeNode));
+    newNode = (treeNode *) malloc(sizeof(treeNode));
     checkMemoryAllocation(newNode);
 
     newNode->position[0] = pos[0]; // insert the position
@@ -119,7 +119,8 @@ treeNode *CreateNewTreeNode(boardPos pos, unsigned int listCellSize) {
 
     else {
 
-        newNode->next_possible_positions = (treeNodeListCell*)malloc(sizeof(treeNodeListCell)); // allocate the possible position list
+        newNode->next_possible_positions = (treeNodeListCell *) malloc(
+                sizeof(treeNodeListCell)); // allocate the possible position list
         checkMemoryAllocation(newNode->next_possible_positions);
     }
 

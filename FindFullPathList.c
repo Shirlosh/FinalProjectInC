@@ -5,41 +5,54 @@
 #include "FindFullPathList.h"
 #include "Functions.h"
 
-void findPathCoveringAllBoard_helper(movesList *pList, boardPosArray **pArray);
 
 unsigned int countNumberOfValidCells(char **pBoard);
 
 
+bool findPathCoveringAllBoard_helper(treeNode *pArray, unsigned int counter, movesList *pList);
+
 movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **board) {
     Move mov;
-    pathTree pathTree;
-    movesList *moveLst = NULL;
     unsigned int counter = 0;
+    pathTree pathTree;
+    movesList moveLst;
+    bool isValid = false;
     boardPosArray **arrayWithValidPositions = NULL;
+
     counter = countNumberOfValidCells(board);
     pathTree = findAllPossiblePaths(start, moves, board);
-    makeEmptyList(moveLst);
-    mov.rows = (char) convertLetterToRow(start[0]);
-    mov.cols = (char) convertChToInt(start[1]);
-    insertDataToEndList(moveLst, mov);
-    findPathCoveringAllBoard_helper(moveLst, arrayWithValidPositions);
-    insertDataToHeadList(moveLst, mov);
+    makeEmptyList(&moveLst);
+
+    //insertDataToEndList(moveLst, mov);
+    isValid = findPathCoveringAllBoard_helper(pathTree.head, counter - 1, &moveLst);
+    if (isValid) {
+        //The first one we dont want to insert to the list
+        /* mov.rows = (char) convertLetterToRow(start[0]);
+         mov.cols = (char) convertChToInt(start[1]);*///
+        // insertDataToHeadList(moveLst, mov);
+    } else {
+        return NULL;
+    }
+    return &moveLst;
 }
+
 
 void insertDataToHeadList(movesList *pList, Move move) {
     moveCell *pMoveNode = NULL;
     pMoveNode = CreateNode(pList, move);
+    pMoveNode->prev=NULL;
     pMoveNode->next = pList->head;
     if (pList->tail == NULL)
         pList->tail = pMoveNode;
+
     pList->head = pMoveNode;
     pList->head->prev = NULL;
 }
 
 unsigned int countNumberOfValidCells(char **pBoard) {
     unsigned int counter = 0;
-    for (int i = 0; i < ROWS; ++i) {
-        for (int j = 0; j < COLS; ++j) {
+    for (int i = 1; i < ROWS; ++i) {
+        for (int j = 1; j < COLS; ++j) {
             if (pBoard[i][j] != '*') {
                 counter++;
             }
@@ -48,6 +61,44 @@ unsigned int countNumberOfValidCells(char **pBoard) {
     return counter;
 }
 
-void findPathCoveringAllBoard_helper(movesList *pList, boardPosArray **pArray) {
+bool findPathCoveringAllBoard_helper(treeNode *pArray, unsigned int counter, movesList *pList) {
+    if (counter == 0) {
+        return true;
+    } else {
+        if (pArray == NULL) {
+            return false;
+        }
+        treeNodeListCell *pNodeListCell = NULL;
+        Move mov;
+        treeNode *pNextNode = NULL;
+        bool found = false;
+        {
+            pNodeListCell = pArray->next_possible_positions;
+            pNextNode = pNodeListCell->node;
+            while ((pNodeListCell->next != NULL) &&
+                   !found) {/// for some reason this condition doesnt work...necause for somereason pNodeListCell->next != NULL but
+                ///the data inside the next is null..and in the next itiration it will die.
+
+                if (findPathCoveringAllBoard_helper(pNextNode, counter - 1, pList)) {
+                    found = true;// we found a good position - we need to put it in the list
+                }
+                if (!found)
+                    pNextNode = pNodeListCell->next->node;
+            }
+        }
+        if (found) {///todo: i need to put the move in the list with refernce to prevoius position maybe i should use movesArray **moves
+            //notice that the fater in the node position and the one of the list is the son we need to diffrencr between them
+            mov.rows = (char) (convertLetterToRow(pNextNode->position[0]) -
+                               (char) convertLetterToRow(pArray->position[0]));
+            mov.cols = (char) (pNextNode->position[1] - pArray->position[1]);
+            insertDataToHeadList(pList, mov);
+            return true;
+        }
+
+
+    }
+    return false;
 
 }
+
+

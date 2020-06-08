@@ -77,7 +77,7 @@ int buildingGamePlay(char **gameBoard, movesList *moves_list, const boardPos sta
 
     gameBoard[convertLetterToRow(start[0])][convertChToInt(start[1])] = StartFlag;
     pMovRef.rows = (char) convertLetterToRow(start[0]);
-    pMovRef.cols = (char) convertChToInt(start[1]);
+    pMovRef.cols = (char) start[1];
 
 
     while (pMove != NULL) { // changed to while
@@ -114,7 +114,7 @@ void deleteNodeFromList(movesList *moves_list, moveCell *toDelete) {
     else if (moves_list->head == toDelete) // or node->prev == NULL
     {
         moves_list->head = moves_list->head->next;
-        moves_list->head->prev = NULL;
+        //moves_list->head->prev = NULL;//TODO TO UNCOMMENT
     } else if (moves_list->tail == toDelete) // or node->next == NULL
     {
         moves_list->tail = moves_list->tail->prev;
