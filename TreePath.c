@@ -23,9 +23,9 @@ pathTree findAllPossiblePaths(boardPos start, movesArray **moves, char **board) 
 ///next possible position is a list of leaf , the last leaf in the leaf point to NULL
 treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, unsigned int branchSize) {
 
-    treeNodeListCell *next;
-    treeNode *newNode;
-    boardPos *newBranch;
+    treeNodeListCell *next = NULL;
+    treeNode *newNode = NULL;
+    boardPos *newBranch = NULL;
     int size, ROW, COL;
     // convert pos to ROW and COL
     ROW = convertLetterToRow (pos[0]);
@@ -49,8 +49,13 @@ treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, unsi
             //the next position
             pos = posArr[ROW][COL].positions[i];
             next->node = BuildTree(pos, posArr, newBranch, branchSize);
+            // if we are at the last pos and its NULL free it.
+            if (i + 1 == size && next->node == NULL) {
+                free(next);
+                next = NULL;
+            }
             // if the node is null utilize other node in it else - go to the next list node
-            if (newNode->next_possible_positions->node != NULL) {
+            if (next->node != NULL) {
                 next->next = (treeNodeListCell *) malloc(sizeof(treeNodeListCell));
                 checkMemoryAllocation(next->next);
                 next = next->next;
@@ -60,8 +65,9 @@ treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, unsi
         free(newBranch);
         return newNode;
     }
-
     free(newBranch);
+    return NULL;
+
 }
 
 ///dupelicate the branch and insert the next new position

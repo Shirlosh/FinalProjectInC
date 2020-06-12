@@ -21,7 +21,7 @@ movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **b
 
     counter = countNumberOfValidCells(board);
     pathTree = findAllPossiblePaths(start, moves, board);
-    makeEmptyList(&moveLst);
+    makeEmptyList(&moveLst);///HERE WE MAY HAVE A BUG
 
     //insertDataToEndList(moveLst, mov);
     isValid = findPathCoveringAllBoard_helper(pathTree.head, counter - 1, &moveLst);
@@ -40,12 +40,15 @@ movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **b
 void insertDataToHeadList(movesList *pList, Move move) {
     moveCell *pMoveNode = NULL;
     pMoveNode = CreateNode(pList, move);
-    pMoveNode->prev=NULL;
+    pMoveNode->prev = NULL;
     pMoveNode->next = pList->head;
+
     if (pList->tail == NULL)
         pList->tail = pMoveNode;
-
+    else
+        pList->head->prev = pMoveNode;
     pList->head = pMoveNode;
+
     pList->head->prev = NULL;
 }
 
@@ -75,9 +78,10 @@ bool findPathCoveringAllBoard_helper(treeNode *pArray, unsigned int counter, mov
         {
             pNodeListCell = pArray->next_possible_positions;
             pNextNode = pNodeListCell->node;
-            while ((pNodeListCell->next != NULL) &&
-                   !found) {/// for some reason this condition doesnt work...necause for somereason pNodeListCell->next != NULL but
-                ///the data inside the next is null..and in the next itiration it will die.
+            /// for some reason this condition doesnt work...necause for somereason pNodeListCell->next != NULL but
+            ///the data inside the next is null..and in the next itiration it will die.
+            while ((pNextNode != NULL) &&
+                   !found) {
 
                 if (findPathCoveringAllBoard_helper(pNextNode, counter - 1, pList)) {
                     found = true;// we found a good position - we need to put it in the list
