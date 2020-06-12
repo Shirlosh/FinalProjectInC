@@ -35,3 +35,7 @@ CMakeFiles/FinalProjct.dir/main.c.o: ../SaveToFile.h
 CMakeFiles/FinalProjct.dir/main.c.o: ../TreePath.h
 CMakeFiles/FinalProjct.dir/main.c.o: ../main.c
 
+CMakeFiles/FinalProjct.dir/projectChecker.c.o: ../Functions.h
+CMakeFiles/FinalProjct.dir/projectChecker.c.o: ../ListDisplayFunctions.h
+CMakeFiles/FinalProjct.dir/projectChecker.c.o: ../projectChecker.c
+

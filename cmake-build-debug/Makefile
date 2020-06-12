@@ -312,6 +312,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/main.c.s
 .PHONY : main.c.s
 
+projectChecker.o: projectChecker.c.o
+
+.PHONY : projectChecker.o
+
+# target to build an object file
+projectChecker.c.o:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/projectChecker.c.o
+.PHONY : projectChecker.c.o
+
+projectChecker.i: projectChecker.c.i
+
+.PHONY : projectChecker.i
+
+# target to preprocess a source file
+projectChecker.c.i:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/projectChecker.c.i
+.PHONY : projectChecker.c.i
+
+projectChecker.s: projectChecker.c.s
+
+.PHONY : projectChecker.s
+
+# target to generate assembly for a file
+projectChecker.c.s:
+	$(MAKE) -f CMakeFiles/FinalProjct.dir/build.make CMakeFiles/FinalProjct.dir/projectChecker.c.s
+.PHONY : projectChecker.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -342,6 +369,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... projectChecker.o"
+	@echo "... projectChecker.i"
+	@echo "... projectChecker.s"
 .PHONY : help
 
 

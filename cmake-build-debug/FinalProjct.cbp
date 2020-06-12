@@ -117,6 +117,9 @@
 		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/main.c">
 			<Option target="FinalProjct"/>
 		</Unit>
+		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/projectChecker.c">
+			<Option target="FinalProjct"/>
+		</Unit>
 		<Unit filename="/Users/idanhauser/CLionProjects/FinalProjectInC/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

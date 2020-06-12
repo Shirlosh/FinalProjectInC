@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/FinalProjct.dir/SaveToFile.c.o"
   "CMakeFiles/FinalProjct.dir/TreePath.c.o"
   "CMakeFiles/FinalProjct.dir/main.c.o"
+  "CMakeFiles/FinalProjct.dir/projectChecker.c.o"
   "FinalProjct"
   "FinalProjct.pdb"
 )

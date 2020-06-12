@@ -1,4 +1,4 @@
-////VER 2.5.6
+////VER 2.6.0
 
 #include <stdio.h>
 #include <stdio.h>
@@ -20,24 +20,29 @@ int main() {
     movesArray **pMoves_arr = NULL;
     char **pboard = NULL;
     movesList *pMovesList = NULL;
+    movesList pMovesListT;
+
+
     pboard = getCharBoard();
     pMoves_arr = getMovesArray();
 
+
     arrayWithValidPositions = validMoves(pMoves_arr, pboard);///this is the for Part 1 of the project
-    // pMovesList = getMoveList();
-    // display(pMovesList, start, pboard);///this is the for Part 2 of the project
+     pMovesList = getMoveList();
+     display(pMovesList, start, pboard);///this is the for Part 2 of the project
 
     start[0] = 'A';
     start[1] = (char) 2;
     findAllPossiblePaths(start, pMoves_arr, pboard);///this is the for Part 3 of the project
 
     pMovesList = findPathCoveringAllBoard(start, pMoves_arr, pboard);//This is for part 4////
-    display(pMovesList, start, pboard);
-    //   saveListToBinFile(file_name, arrayWithValidPositions[0]);//This is for part 5////todo : need to check why this functions calls only as one dimesntion arr,,,
+    pMovesListT = *pMovesList;
+    display(&pMovesListT, start, pboard);
+     saveListToBinFile(file_name, arrayWithValidPositions[0]);//This is for part 5
 
 
 
-    freeMoveList(pMovesList);
+    //freeMoveList(pMovesList);
     freeGameBord(pboard);
     freeMovmentArray(pMoves_arr);
 

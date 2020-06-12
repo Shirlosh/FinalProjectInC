@@ -21,7 +21,7 @@ movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **b
 
     counter = countNumberOfValidCells(board);
     pathTree = findAllPossiblePaths(start, moves, board);
-    makeEmptyList(&moveLst);///HERE WE MAY HAVE A BUG
+    makeEmptyList(&moveLst);
 
     //insertDataToEndList(moveLst, mov);
     isValid = findPathCoveringAllBoard_helper(pathTree.head, counter - 1, &moveLst);
@@ -75,21 +75,19 @@ bool findPathCoveringAllBoard_helper(treeNode *pArray, unsigned int counter, mov
         Move mov;
         treeNode *pNextNode = NULL;
         bool found = false;
-        {
-            pNodeListCell = pArray->next_possible_positions;
-            pNextNode = pNodeListCell->node;
-            /// for some reason this condition doesnt work...necause for somereason pNodeListCell->next != NULL but
-            ///the data inside the next is null..and in the next itiration it will die.
-            while ((pNextNode != NULL) &&
-                   !found) {
 
-                if (findPathCoveringAllBoard_helper(pNextNode, counter - 1, pList)) {
-                    found = true;// we found a good position - we need to put it in the list
-                }
-                if (!found)
-                    pNextNode = pNodeListCell->next->node;
+        pNodeListCell = pArray->next_possible_positions;
+        pNextNode = pNodeListCell->node;
+
+        while ((pNextNode != NULL) && !found) {
+
+            if (findPathCoveringAllBoard_helper(pNextNode, counter - 1, pList)) {
+                found = true;// we found a good position - we need to put it in the list
             }
+            if (!found)
+                pNextNode = pNodeListCell->next->node;
         }
+
         if (found) {///todo: i need to put the move in the list with refernce to prevoius position maybe i should use movesArray **moves
             //notice that the fater in the node position and the one of the list is the son we need to diffrencr between them
             mov.rows = (char) (convertLetterToRow(pNextNode->position[0]) -

@@ -22,6 +22,15 @@ typedef struct _movesList {
     moveCell *tail;
 } movesList;
 
+//ex6
+int checkAndDisplayPathFromFile(char *file_name, movesArray **moves, char **board);
+
+movesList *readMoveList(FILE *f);
+
+BYTE *createByteArr(FILE *f, short int size, short int byteSize);
+
+movesList *byteArrtoMovelist(BYTE *byteArr, short int size);
+
 
 int buildingGamePlay(char **gameBoard, movesList *moves_list, const boardPos start, const char **board);
 

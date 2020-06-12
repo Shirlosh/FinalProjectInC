@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/SaveToFile.c.o"
   "/Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/TreePath.c.o"
   "/Users/idanhauser/CLionProjects/FinalProjectInC/main.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/main.c.o"
+  "/Users/idanhauser/CLionProjects/FinalProjectInC/projectChecker.c" "/Users/idanhauser/CLionProjects/FinalProjectInC/cmake-build-debug/CMakeFiles/FinalProjct.dir/projectChecker.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

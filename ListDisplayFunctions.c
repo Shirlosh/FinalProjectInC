@@ -8,8 +8,9 @@
 int display(movesList *moves_list, boardPos start, char **board) {
     char **pGameBoard = NULL;
     int deletedNodes = 0;
-   // start[0] = 'A';
-    //start[1] = '1';
+    //movesList p;
+
+    //p = *moves_list;
     pGameBoard = (char **) calloc(ROWS, sizeof(char *)); //added 1
     checkMemoryAllocation(pGameBoard);
     for (int i = 1; i < ROWS; ++i) {
@@ -17,7 +18,7 @@ int display(movesList *moves_list, boardPos start, char **board) {
         checkMemoryAllocation(pGameBoard[i]);
         copyGameBoard(pGameBoard[i], board[i]);
     }
-    deletedNodes = buildingGamePlay(pGameBoard, moves_list, start, (const char **) board);
+    deletedNodes = buildingGamePlay(pGameBoard,moves_list, start, (const char **) board);
     printGameBoard(pGameBoard);
     return deletedNodes;
 }
@@ -75,7 +76,7 @@ int buildingGamePlay(char **gameBoard, movesList *moves_list, const boardPos sta
     pMove = moves_list->head;
 
 
-    gameBoard[convertLetterToRow(start[0])][convertChToInt(start[1])] = StartFlag;
+    gameBoard[convertLetterToRow(start[0])][start[1]] = StartFlag;
     pMovRef.rows = (char) convertLetterToRow(start[0]);
     pMovRef.cols = (char) start[1];
 
