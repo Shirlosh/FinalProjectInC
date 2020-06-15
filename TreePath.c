@@ -1,7 +1,3 @@
-//
-// Created by Shirly on 20/05/2020.
-//
-
 #include "TreePath.h"
 
 
@@ -23,16 +19,18 @@ pathTree findAllPossiblePaths(boardPos start, movesArray **moves, char **board) 
 ///next possible position is a list of leaf , the last leaf in the leaf point to NULL
 treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, unsigned int branchSize) {
 
-    treeNodeListCell *next = NULL;
-    treeNode *newNode = NULL;
-    boardPos *newBranch = NULL;
+    treeNodeListCell *next;
+    treeNode *newNode;
+    boardPos *newBranch;
     int size, ROW, COL;
+
     // convert pos to ROW and COL
-    ROW = convertLetterToRow (pos[0]);
-    COL = (int) (pos[1]);
+    ROW = convertLetterToRow(pos[0]);
+    COL = (int)(pos[1]);
     // utilize the size
     size = posArr[ROW][COL].size;
-// base case only leaf
+
+    // base case only leaf
     if (size == 0) {
         newNode = CreateNewTreeNode(pos, 0);
         return newNode;
@@ -49,17 +47,16 @@ treeNode *BuildTree(boardPos pos, boardPosArray **posArr, boardPos *branch, unsi
             //the next position
             pos = posArr[ROW][COL].positions[i];
             next->node = BuildTree(pos, posArr, newBranch, branchSize);
-            // if we are at the last pos and its NULL free it.
-            if (i + 1 == size && next->node == NULL) {
-                free(next);
-                next = NULL;
-            }
+
             // if the node is null utilize other node in it else - go to the next list node
-            if (next->node != NULL) {
-                next->next = (treeNodeListCell *) malloc(sizeof(treeNodeListCell));
+            // if its the last loop dont allocate the next cell
+            if (next->node != NULL && i+1!=size ) {
+                next->next = (treeNodeListCell *)malloc(sizeof(treeNodeListCell));
                 checkMemoryAllocation(next->next);
                 next = next->next;
+                next->next = NULL;
             }
+
         }
 
         free(newBranch);
@@ -77,7 +74,7 @@ boardPos *branchDuplicate(boardPos *oldBranch, int *branchSize, boardPos pos) {
     boardPos *newBranch;
     int i;
 
-    newBranch = (boardPos *) malloc(((*branchSize) + 1) * sizeof(boardPos));
+    newBranch = (boardPos *)malloc(((*branchSize) + 1) * sizeof(boardPos));
     checkMemoryAllocation(newBranch);
 
     for (i = 0; i < *branchSize; i++) { // copy the old position
@@ -113,7 +110,7 @@ bool isLoop(boardPos *branch, unsigned int size) {
 treeNode *CreateNewTreeNode(boardPos pos, unsigned int listCellSize) {
     treeNode *newNode;
 
-    newNode = (treeNode *) malloc(sizeof(treeNode));
+    newNode = (treeNode *)malloc(sizeof(treeNode));
     checkMemoryAllocation(newNode);
 
     newNode->position[0] = pos[0]; // insert the position
@@ -125,9 +122,10 @@ treeNode *CreateNewTreeNode(boardPos pos, unsigned int listCellSize) {
 
     else {
 
-        newNode->next_possible_positions = (treeNodeListCell *) malloc(
+        newNode->next_possible_positions = (treeNodeListCell *)malloc(
                 sizeof(treeNodeListCell)); // allocate the possible position list
         checkMemoryAllocation(newNode->next_possible_positions);
+        newNode->next_possible_positions->next = NULL;
     }
 
     return newNode;

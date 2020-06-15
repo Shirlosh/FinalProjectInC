@@ -1,4 +1,4 @@
-////VER 2.6.0
+////VER 2.6.3
 
 #include <stdio.h>
 #include <stdio.h>
@@ -27,9 +27,9 @@ int main() {
     pMoves_arr = getMovesArray();
 
 
-    arrayWithValidPositions = validMoves(pMoves_arr, pboard);///this is the for Part 1 of the project
-     pMovesList = getMoveList();
-     display(pMovesList, start, pboard);///this is the for Part 2 of the project
+    //arrayWithValidPositions = validMoves(pMoves_arr, pboard);///this is the for Part 1 of the project
+   //  pMovesList = getMoveList();
+    // display(pMovesList, start, pboard);///this is the for Part 2 of the project
 
     start[0] = 'A';
     start[1] = (char) 2;

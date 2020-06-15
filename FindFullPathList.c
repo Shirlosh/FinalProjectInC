@@ -26,14 +26,11 @@ movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **b
     //insertDataToEndList(moveLst, mov);
     isValid = findPathCoveringAllBoard_helper(pathTree.head, counter - 1, &moveLst);
     if (isValid) {
-        //The first one we dont want to insert to the list
-        /* mov.rows = (char) convertLetterToRow(start[0]);
-         mov.cols = (char) convertChToInt(start[1]);*///
-        // insertDataToHeadList(moveLst, mov);
+        return &moveLst;
     } else {
         return NULL;
     }
-    return &moveLst;
+
 }
 
 
@@ -76,16 +73,23 @@ bool findPathCoveringAllBoard_helper(treeNode *pArray, unsigned int counter, mov
         treeNode *pNextNode = NULL;
         bool found = false;
 
-        pNodeListCell = pArray->next_possible_positions;
-        pNextNode = pNodeListCell->node;
 
+        if (pArray->next_possible_positions) {
+            pNodeListCell = pArray->next_possible_positions;
+            pNextNode = pNodeListCell->node;
+        }
         while ((pNextNode != NULL) && !found) {
 
             if (findPathCoveringAllBoard_helper(pNextNode, counter - 1, pList)) {
                 found = true;// we found a good position - we need to put it in the list
             }
             if (!found)
-                pNextNode = pNodeListCell->next->node;
+                if ((pNodeListCell) && (pNodeListCell->next)) {
+                    pNextNode = pNodeListCell->next->node;
+                    pNodeListCell = pNextNode->next_possible_positions;
+                } else {
+                    pNextNode = NULL;
+                }
         }
 
         if (found) {///todo: i need to put the move in the list with refernce to prevoius position maybe i should use movesArray **moves
