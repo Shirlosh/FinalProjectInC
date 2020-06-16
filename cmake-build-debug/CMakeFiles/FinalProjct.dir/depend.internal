@@ -22,7 +22,6 @@ CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o
 CMakeFiles/FinalProjct.dir/SaveToFile.c.o
  /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.c
- /Users/idanhauser/CLionProjects/FinalProjectInC/SaveToFile.h
 CMakeFiles/FinalProjct.dir/TreePath.c.o
  /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.c
@@ -36,6 +35,8 @@ CMakeFiles/FinalProjct.dir/main.c.o
  /Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/main.c
 CMakeFiles/FinalProjct.dir/projectChecker.c.o
+ /Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h
+ /Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
  /Users/idanhauser/CLionProjects/FinalProjectInC/projectChecker.c

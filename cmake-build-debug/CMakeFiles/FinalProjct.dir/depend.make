@@ -21,7 +21,6 @@ CMakeFiles/FinalProjct.dir/ListDisplayFunctions.c.o: ../ListDisplayFunctions.h
 
 CMakeFiles/FinalProjct.dir/SaveToFile.c.o: ../Functions.h
 CMakeFiles/FinalProjct.dir/SaveToFile.c.o: ../SaveToFile.c
-CMakeFiles/FinalProjct.dir/SaveToFile.c.o: ../SaveToFile.h
 
 CMakeFiles/FinalProjct.dir/TreePath.c.o: ../Functions.h
 CMakeFiles/FinalProjct.dir/TreePath.c.o: ../TreePath.c
@@ -35,7 +34,9 @@ CMakeFiles/FinalProjct.dir/main.c.o: ../SaveToFile.h
 CMakeFiles/FinalProjct.dir/main.c.o: ../TreePath.h
 CMakeFiles/FinalProjct.dir/main.c.o: ../main.c
 
+CMakeFiles/FinalProjct.dir/projectChecker.c.o: ../FindFullPathList.h
 CMakeFiles/FinalProjct.dir/projectChecker.c.o: ../Functions.h
 CMakeFiles/FinalProjct.dir/projectChecker.c.o: ../ListDisplayFunctions.h
+CMakeFiles/FinalProjct.dir/projectChecker.c.o: ../TreePath.h
 CMakeFiles/FinalProjct.dir/projectChecker.c.o: ../projectChecker.c
 

@@ -23,13 +23,6 @@
 #define ROWS N+1
 #define COLS M+1
 
-typedef unsigned char BYTE; //ex5
-#define posBitSize 3 // ex5
-
-
-
-
-
 
 typedef char boardPos[2];
 
@@ -67,24 +60,24 @@ boardPosArray **BuildingToNewArray(movesArray **moves);
 void CopyValidBoardPositions(boardPosArray *newArr, movesArray *validMove, int refRow);
 
 void copyGameBoard(char *pDes, char *pSrc);
+
 //ex5
+typedef unsigned char BYTE; //ex5
+#define posBitSize 3 // ex5
 
 void saveListToBinFile(char *file_name, boardPosArray *pos_arr);
-BYTE *CompressByteArr(BYTE *pArr, short int size,short int *bitsSize);
+
+BYTE *CompressByteArr(BYTE *pArr, short int size, short int *bitsSize);
+
 BYTE *PositionToByteArray(boardPos *pArr, short int size);
-
-
 //
 
 //ex6
-
 #define OPEN_FAILED -1
 #define ILLEAGAL_PATH 1
 #define PATH_COVERED_ALL_BOARD 2
 #define PATH_DIDNT_COVERED_BOARD 3
 
 #define TREEHIGHBITS 0xE0 // 1110 0000
-
 //
-
 #endif //FINALPROJECT_FUNCTIONS_H

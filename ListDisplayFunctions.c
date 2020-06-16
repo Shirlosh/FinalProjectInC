@@ -115,7 +115,7 @@ void deleteNodeFromList(movesList *moves_list, moveCell *toDelete) {
     else if (moves_list->head == toDelete) // or node->prev == NULL
     {
         moves_list->head = moves_list->head->next;
-        //moves_list->head->prev = NULL;//TODO TO UNCOMMENT
+        moves_list->head->prev = NULL;
     } else if (moves_list->tail == toDelete) // or node->next == NULL
     {
         moves_list->tail = moves_list->tail->prev;

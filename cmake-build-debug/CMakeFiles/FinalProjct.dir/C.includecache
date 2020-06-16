@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.c
-FindFullPathList.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.h
-Functions.h
-/Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
-
 /Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.h
 Functions.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
@@ -39,4 +33,10 @@ Functions.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/TreePath.h
 Functions.h
 /Users/idanhauser/CLionProjects/FinalProjectInC/Functions.h
+
+/Users/idanhauser/CLionProjects/FinalProjectInC/projectChecker.c
+ListDisplayFunctions.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/ListDisplayFunctions.h
+FindFullPathList.h
+/Users/idanhauser/CLionProjects/FinalProjectInC/FindFullPathList.h
 
