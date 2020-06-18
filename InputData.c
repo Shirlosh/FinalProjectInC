@@ -1,19 +1,12 @@
-//
-// Created by Idan Hauser on 16/04/2020.
-//
 
 #include "InputData.h"
-#include <stdio.h>
-#include <string.h>
-#include "stdbool.h"
-#include "stdlib.h"
 #include "Functions.h"
 
 /// Getting from the user the movesArray and builds it
 ///return the move array \return
 movesArray **getMovesArray() {
-    movesArray *pInput = NULL;
-    movesArray **pMovesArr = NULL;
+	movesArray *pInput = NULL;
+	movesArray **pMovesArr = NULL;
 
 	pMovesArr = (movesArray **)calloc(ROWS, sizeof(movesArray *)); // MoveArr Allocation
 	checkMemoryAllocation(pMovesArr);
@@ -24,6 +17,7 @@ movesArray **getMovesArray() {
 
 		for (int j = 1; j < COLS; ++j) {
 			pInput = &pMovesArr[i][j];
+			printf("movements: ");
 			scanf("%u", &(pInput->size));
 			pInput->moves = getMovementArr(pInput->size);
 		}
@@ -38,12 +32,14 @@ char **getCharBoard() {
 
 	pGameBoard = (char **)calloc(ROWS, sizeof(char *));
 	checkMemoryAllocation(pGameBoard);
-	getchar(); //add
+	//getchar(); //add
+	printf("enter char:");
+	getchar();// add
 	for (int i = 1; i < ROWS; ++i) {
 
 		pGameBoard[i] = (char *)calloc(COLS, sizeof(char));
 		checkMemoryAllocation(pGameBoard[i]);
-		for (int j = 1; j <COLS; ++j) {
+		for (int j = 1; j < COLS; ++j) {
 			scanf("%c", &ch);
 			getchar();// add
 			pGameBoard[i][j] = ch;
@@ -69,10 +65,10 @@ Move *getMovementArr(int size) {
 		scanf("%d", &col);
 		array[i].cols = (char)col;
 
-    }
+	}
 
 
-    return array;
+	return array;
 }
 
 /// This function to get the data of the list - movments
@@ -98,27 +94,15 @@ movesList *getMoveList() {
 	}
 
 
-    return move_list;
+	return move_list;
 }
 
-/// Freeing the memory alocation of the list
-///Deallocates the space previously allocated by malloc(), calloc(),
-/// the list we want to free\param pList
-void freeMoveList(movesList *pList) {
-    moveCell *pNode = NULL;
-    moveCell *pNext = NULL;
-
-    for (pNode = pList->head; pNode != NULL; pNode = pNext) {
-        pNext = pNode->next;
-        free(pNode);
-    }
-}
 
 ///  Freeing the memory alocation of Gameboard chars
 ///Deallocates the space previously allocated by malloc(), calloc(),
 /// The game bord char type\param pBoard
 void freeGameBord(char **pBoard) {
-	for (int i = 0; i <ROWS; ++i) {
+	for (int i = 0; i < ROWS; ++i) {
 		free(pBoard[i]);
 	}
 	free(pBoard);
