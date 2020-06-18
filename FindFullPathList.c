@@ -1,7 +1,11 @@
 
 #include "TreePath.h"
 
-
+/// This function checks if there is a full valid path in the board
+/// The first place we start from to find the path\param start
+///Valid moves in the bodard \param moves
+///the play board \param board
+/// return the full path or null if no found\return
 movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **board) {
 	Move mov;
 	unsigned int counter = 0;
@@ -26,6 +30,9 @@ movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **b
 }
 
 
+/// This function insert data into the head of the list
+/// The list\param pList
+/// the data we want to insert into\param move
 void insertDataToHeadList(movesList *pList, Move move) {
 	moveCell *pMoveNode = NULL;
 	pMoveNode = CreateNode(pList, move);
@@ -40,7 +47,9 @@ void insertDataToHeadList(movesList *pList, Move move) {
 
 	pList->head->prev = NULL;
 }
-
+/// This function counts how many valid cells we have
+///The play board \param pBoard
+/// how many valid cells\return
 unsigned int countNumberOfValidCells(char **pBoard) {
 	unsigned int counter = 0;
 	for (int i = 1; i < ROWS; ++i) {
@@ -52,7 +61,11 @@ unsigned int countNumberOfValidCells(char **pBoard) {
 	}
 	return counter;
 }
-
+/// This is a rec function that build the path with the help of the tree in oreder to find a valid path in the board
+/// the object of the tree with all the paths\param pArray
+///counts how many position we have to count in oreder to find a full path\param counter
+///the list that holds a valid path \param pList
+///retunes a valid path in the play board or null if coulndt find \return
 bool findPathCoveringAllBoard_helper(treeNode *pArray, unsigned int counter, movesList **pList) {
 	if (counter == 0) {
 		return true;
@@ -87,7 +100,6 @@ bool findPathCoveringAllBoard_helper(treeNode *pArray, unsigned int counter, mov
 		}
 
 		if (found) {
-			//notice that the fater in the node position and the one of the list is the son we need to diffrencr between them
 			mov.rows = (char)(convertLetterToRow(pNextNode->position[0]) -
 				(char)convertLetterToRow(pArray->position[0]));
 			mov.cols = (char)(pNextNode->position[1] - pArray->position[1]);
