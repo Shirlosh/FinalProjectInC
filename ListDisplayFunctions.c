@@ -1,6 +1,11 @@
 
 #include "ListDisplayFunctions.h"
-
+/// This function get a list and checks if the list with apath and we check if its 
+/// valid and also print in into the screen, and delete the ilegal ndoes 
+/// the list we want to check this list holds path we want to check \param moves_list 
+/// The first position we start from the path\param start 
+///The game bodard \param board 
+/// retunes how much nodes we deleted on the ppath \return 
 int display(movesList *moves_list, boardPos start, char **board) {
 	char **pGameBoard = NULL;
 	int deletedNodes = 0;
