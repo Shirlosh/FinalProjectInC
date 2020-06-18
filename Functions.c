@@ -60,7 +60,7 @@ bool CheckifMovesisValid(movesArray *pArray, char **board, int currRow, int Curr
 /// returns true if it is out of border -> else False\return
 bool isOutOfBorder(int row, int col) {
 	bool isOut = false;
-	if ((row >= ROWS) || (col >= COLS) || (col < 1) || (row < 1)) {//todo:need to test it,
+	if ((row >= ROWS) || (col >= COLS) || (col < 1) || (row < 1)) {
 
 		isOut = true;
 
