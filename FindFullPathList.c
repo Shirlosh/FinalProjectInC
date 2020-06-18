@@ -1,53 +1,102 @@
-//
-// Created by Idan Hauser on 21/05/2020.
-//
 
-#include "FindFullPathList.h"
-#include "Functions.h"
-
-void findPathCoveringAllBoard_helper(movesList *pList, boardPosArray **pArray);
-
-unsigned int countNumberOfValidCells(char **pBoard);
+#include "TreePath.h"
 
 
 movesList *findPathCoveringAllBoard(boardPos start, movesArray **moves, char **board) {
-    Move mov;
-    pathTree pathTree;
-    movesList *moveLst = NULL;
-    unsigned int counter = 0;
-    boardPosArray **arrayWithValidPositions = NULL;
-    counter = countNumberOfValidCells(board);
-    pathTree = findAllPossiblePaths(start, moves, board);
-    makeEmptyList(moveLst);
-    mov.rows = (char) convertLetterToRow(start[0]);
-    mov.cols = (char) convertChToInt(start[1]);
-    insertDataToEndList(moveLst, mov);
-    findPathCoveringAllBoard_helper(moveLst, arrayWithValidPositions);
-    insertDataToHeadList(moveLst, mov);
+	Move mov;
+	unsigned int counter = 0;
+	pathTree pathTree;
+	movesList *moveLst;
+	bool isValid = false;
+	boardPosArray **arrayWithValidPositions = NULL;
+
+	counter = countNumberOfValidCells(board);
+	pathTree = findAllPossiblePaths(start, moves, board);
+	moveLst = (movesList*)malloc(sizeof(movesList));
+	checkMemoryAllocation(moveLst);
+	makeEmptyList(moveLst);
+
+	isValid = findPathCoveringAllBoard_helper(pathTree.head, counter - 1, &moveLst);
+
+	if (isValid)
+		return moveLst;
+	else
+		return NULL;
+
 }
 
+
 void insertDataToHeadList(movesList *pList, Move move) {
-    moveCell *pMoveNode = NULL;
-    pMoveNode = CreateNode(pList, move);
-    pMoveNode->next = pList->head;
-    if (pList->tail == NULL)
-        pList->tail = pMoveNode;
-    pList->head = pMoveNode;
-    pList->head->prev = NULL;
+	moveCell *pMoveNode = NULL;
+	pMoveNode = CreateNode(pList, move);
+	pMoveNode->prev = NULL;
+	pMoveNode->next = pList->head;
+
+	if (pList->tail == NULL)
+		pList->tail = pMoveNode;
+	else
+		pList->head->prev = pMoveNode;
+	pList->head = pMoveNode;
+
+	pList->head->prev = NULL;
 }
 
 unsigned int countNumberOfValidCells(char **pBoard) {
-    unsigned int counter = 0;
-    for (int i = 0; i < ROWS; ++i) {
-        for (int j = 0; j < COLS; ++j) {
-            if (pBoard[i][j] != '*') {
-                counter++;
-            }
-        }
-    }
-    return counter;
+	unsigned int counter = 0;
+	for (int i = 1; i < ROWS; ++i) {
+		for (int j = 1; j < COLS; ++j) {
+			if (pBoard[i][j] != '*') {
+				counter++;
+			}
+		}
+	}
+	return counter;
 }
 
-void findPathCoveringAllBoard_helper(movesList *pList, boardPosArray **pArray) {
+bool findPathCoveringAllBoard_helper(treeNode *pArray, unsigned int counter, movesList **pList) {
+	if (counter == 0) {
+		return true;
+	}
+	else {
+		if (pArray == NULL) {
+			return false;
+		}
+		treeNodeListCell *pNodeListCell = NULL;
+		Move mov;
+		treeNode *pNextNode = NULL;
+		bool found = false;
+
+
+		if (pArray->next_possible_positions) {
+			pNodeListCell = pArray->next_possible_positions;
+			pNextNode = pNodeListCell->node;
+		}
+		while ((pNextNode != NULL) && !found) {
+
+			if (findPathCoveringAllBoard_helper(pNextNode, counter - 1, pList)) {
+				found = true;// we found a good position - we need to put it in the list
+			}
+			if (!found)
+				if ((pNodeListCell) && (pNodeListCell->next)) {
+					pNextNode = pNodeListCell->next->node;
+					pNodeListCell = pNextNode->next_possible_positions;
+				}
+				else {
+					pNextNode = NULL;
+				}
+		}
+
+		if (found) {
+			//notice that the fater in the node position and the one of the list is the son we need to diffrencr between them
+			mov.rows = (char)(convertLetterToRow(pNextNode->position[0]) -
+				(char)convertLetterToRow(pArray->position[0]));
+			mov.cols = (char)(pNextNode->position[1] - pArray->position[1]);
+			insertDataToHeadList(*pList, mov);
+			return true;
+		}
+
+
+	}
+	return false;
 
 }
